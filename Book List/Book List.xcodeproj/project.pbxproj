@@ -13,14 +13,25 @@
 		E423B35418D191ED00D32930 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E423B35218D191ED00D32930 /* InfoPlist.strings */; };
 		E423B35618D191ED00D32930 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B35518D191ED00D32930 /* main.m */; };
 		E423B35A18D191ED00D32930 /* BLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B35918D191ED00D32930 /* BLAppDelegate.m */; };
-		E423B35D18D191ED00D32930 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E423B35B18D191ED00D32930 /* Main.storyboard */; };
-		E423B36018D191ED00D32930 /* BLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B35F18D191ED00D32930 /* BLViewController.m */; };
 		E423B36218D191ED00D32930 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E423B36118D191ED00D32930 /* Images.xcassets */; };
 		E423B36918D191ED00D32930 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423B36818D191ED00D32930 /* XCTest.framework */; };
 		E423B36A18D191ED00D32930 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423B34918D191ED00D32930 /* Foundation.framework */; };
 		E423B36B18D191ED00D32930 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423B34D18D191ED00D32930 /* UIKit.framework */; };
 		E423B37318D191ED00D32930 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E423B37118D191ED00D32930 /* InfoPlist.strings */; };
 		E423B37518D191ED00D32930 /* Book_ListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B37418D191ED00D32930 /* Book_ListTests.m */; };
+		E423B38618D196A600D32930 /* ListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B38518D196A600D32930 /* ListTableView.m */; };
+		E423B38718D196A600D32930 /* ListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B38518D196A600D32930 /* ListTableView.m */; };
+		E423B38A18D1979200D32930 /* CWSmartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B38918D1979200D32930 /* CWSmartTableViewCell.m */; };
+		E423B38B18D1979200D32930 /* CWSmartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B38918D1979200D32930 /* CWSmartTableViewCell.m */; };
+		E423B39A18D1D8F500D32930 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423B39918D1D8F500D32930 /* QuartzCore.framework */; };
+		E423B39D18D1DFE400D32930 /* CategoryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B39C18D1DFE400D32930 /* CategoryTableView.m */; };
+		E423B39E18D1DFE400D32930 /* CategoryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B39C18D1DFE400D32930 /* CategoryTableView.m */; };
+		E423B3A518D1F98000D32930 /* BLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B3A418D1F98000D32930 /* BLMainViewController.m */; };
+		E423B3A618D1F98000D32930 /* BLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B3A418D1F98000D32930 /* BLMainViewController.m */; };
+		E423B3A918D1FD4800D32930 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B3A818D1FD4800D32930 /* ListTableViewCell.m */; };
+		E423B3AA18D1FD4800D32930 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B3A818D1FD4800D32930 /* ListTableViewCell.m */; };
+		E423B3AD18D1FD6100D32930 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B3AC18D1FD6100D32930 /* CategoryTableViewCell.m */; };
+		E423B3AE18D1FD6100D32930 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B3AC18D1FD6100D32930 /* CategoryTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,15 +55,25 @@
 		E423B35718D191ED00D32930 /* Book List-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Book List-Prefix.pch"; sourceTree = "<group>"; };
 		E423B35818D191ED00D32930 /* BLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLAppDelegate.h; sourceTree = "<group>"; };
 		E423B35918D191ED00D32930 /* BLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLAppDelegate.m; sourceTree = "<group>"; };
-		E423B35C18D191ED00D32930 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E423B35E18D191ED00D32930 /* BLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLViewController.h; sourceTree = "<group>"; };
-		E423B35F18D191ED00D32930 /* BLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLViewController.m; sourceTree = "<group>"; };
 		E423B36118D191ED00D32930 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E423B36718D191ED00D32930 /* Book ListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Book ListTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E423B36818D191ED00D32930 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		E423B37018D191ED00D32930 /* Book ListTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Book ListTests-Info.plist"; sourceTree = "<group>"; };
 		E423B37218D191ED00D32930 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E423B37418D191ED00D32930 /* Book_ListTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Book_ListTests.m; sourceTree = "<group>"; };
+		E423B38418D196A600D32930 /* ListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListTableView.h; path = "Book List/Views/ListTableView.h"; sourceTree = "<group>"; };
+		E423B38518D196A600D32930 /* ListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListTableView.m; path = "Book List/Views/ListTableView.m"; sourceTree = "<group>"; };
+		E423B38818D1979200D32930 /* CWSmartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWSmartTableViewCell.h; path = "Book List/Views/CWSmartTableViewCell.h"; sourceTree = "<group>"; };
+		E423B38918D1979200D32930 /* CWSmartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWSmartTableViewCell.m; path = "Book List/Views/CWSmartTableViewCell.m"; sourceTree = "<group>"; };
+		E423B39918D1D8F500D32930 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E423B39B18D1DFE400D32930 /* CategoryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryTableView.h; path = "Book List/Views/CategoryTableView.h"; sourceTree = "<group>"; };
+		E423B39C18D1DFE400D32930 /* CategoryTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryTableView.m; path = "Book List/Views/CategoryTableView.m"; sourceTree = "<group>"; };
+		E423B3A318D1F98000D32930 /* BLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLMainViewController.h; path = "Book List/Controllers/BLMainViewController.h"; sourceTree = "<group>"; };
+		E423B3A418D1F98000D32930 /* BLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLMainViewController.m; path = "Book List/Controllers/BLMainViewController.m"; sourceTree = "<group>"; };
+		E423B3A718D1FD4800D32930 /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListTableViewCell.h; path = "Book List/Views/ListTableViewCell.h"; sourceTree = "<group>"; };
+		E423B3A818D1FD4800D32930 /* ListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListTableViewCell.m; path = "Book List/Views/ListTableViewCell.m"; sourceTree = "<group>"; };
+		E423B3AB18D1FD6100D32930 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryTableViewCell.h; path = "Book List/Views/CategoryTableViewCell.h"; sourceTree = "<group>"; };
+		E423B3AC18D1FD6100D32930 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryTableViewCell.m; path = "Book List/Views/CategoryTableViewCell.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E423B39A18D1D8F500D32930 /* QuartzCore.framework in Frameworks */,
 				E423B34C18D191ED00D32930 /* CoreGraphics.framework in Frameworks */,
 				E423B34E18D191ED00D32930 /* UIKit.framework in Frameworks */,
 				E423B34A18D191ED00D32930 /* Foundation.framework in Frameworks */,
@@ -101,6 +123,7 @@
 		E423B34818D191ED00D32930 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E423B39918D1D8F500D32930 /* QuartzCore.framework */,
 				E423B34918D191ED00D32930 /* Foundation.framework */,
 				E423B34B18D191ED00D32930 /* CoreGraphics.framework */,
 				E423B34D18D191ED00D32930 /* UIKit.framework */,
@@ -112,11 +135,9 @@
 		E423B34F18D191ED00D32930 /* Book List */ = {
 			isa = PBXGroup;
 			children = (
-				E423B35818D191ED00D32930 /* BLAppDelegate.h */,
-				E423B35918D191ED00D32930 /* BLAppDelegate.m */,
-				E423B35B18D191ED00D32930 /* Main.storyboard */,
-				E423B35E18D191ED00D32930 /* BLViewController.h */,
-				E423B35F18D191ED00D32930 /* BLViewController.m */,
+				E423B39418D1D88000D32930 /* Libs */,
+				E423B38318D1965800D32930 /* Views */,
+				E423B38218D195DD00D32930 /* Controllers */,
 				E423B36118D191ED00D32930 /* Images.xcassets */,
 				E423B35018D191ED00D32930 /* Supporting Files */,
 			);
@@ -126,6 +147,8 @@
 		E423B35018D191ED00D32930 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E423B35818D191ED00D32930 /* BLAppDelegate.h */,
+				E423B35918D191ED00D32930 /* BLAppDelegate.m */,
 				E423B35118D191ED00D32930 /* Book List-Info.plist */,
 				E423B35218D191ED00D32930 /* InfoPlist.strings */,
 				E423B35518D191ED00D32930 /* main.m */,
@@ -150,6 +173,41 @@
 				E423B37118D191ED00D32930 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E423B38218D195DD00D32930 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E423B3A318D1F98000D32930 /* BLMainViewController.h */,
+				E423B3A418D1F98000D32930 /* BLMainViewController.m */,
+			);
+			name = Controllers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		E423B38318D1965800D32930 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E423B3A718D1FD4800D32930 /* ListTableViewCell.h */,
+				E423B3A818D1FD4800D32930 /* ListTableViewCell.m */,
+				E423B3AB18D1FD6100D32930 /* CategoryTableViewCell.h */,
+				E423B3AC18D1FD6100D32930 /* CategoryTableViewCell.m */,
+				E423B39B18D1DFE400D32930 /* CategoryTableView.h */,
+				E423B39C18D1DFE400D32930 /* CategoryTableView.m */,
+				E423B38818D1979200D32930 /* CWSmartTableViewCell.h */,
+				E423B38918D1979200D32930 /* CWSmartTableViewCell.m */,
+				E423B38418D196A600D32930 /* ListTableView.h */,
+				E423B38518D196A600D32930 /* ListTableView.m */,
+			);
+			name = Views;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		E423B39418D1D88000D32930 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +289,6 @@
 			files = (
 				E423B36218D191ED00D32930 /* Images.xcassets in Resources */,
 				E423B35418D191ED00D32930 /* InfoPlist.strings in Resources */,
-				E423B35D18D191ED00D32930 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,8 +307,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E423B36018D191ED00D32930 /* BLViewController.m in Sources */,
+				E423B38A18D1979200D32930 /* CWSmartTableViewCell.m in Sources */,
 				E423B35A18D191ED00D32930 /* BLAppDelegate.m in Sources */,
+				E423B38618D196A600D32930 /* ListTableView.m in Sources */,
+				E423B3AD18D1FD6100D32930 /* CategoryTableViewCell.m in Sources */,
+				E423B3A518D1F98000D32930 /* BLMainViewController.m in Sources */,
+				E423B3A918D1FD4800D32930 /* ListTableViewCell.m in Sources */,
+				E423B39D18D1DFE400D32930 /* CategoryTableView.m in Sources */,
 				E423B35618D191ED00D32930 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,7 +322,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E423B38718D196A600D32930 /* ListTableView.m in Sources */,
+				E423B38B18D1979200D32930 /* CWSmartTableViewCell.m in Sources */,
+				E423B3A618D1F98000D32930 /* BLMainViewController.m in Sources */,
+				E423B3AE18D1FD6100D32930 /* CategoryTableViewCell.m in Sources */,
+				E423B3AA18D1FD4800D32930 /* ListTableViewCell.m in Sources */,
 				E423B37518D191ED00D32930 /* Book_ListTests.m in Sources */,
+				E423B39E18D1DFE400D32930 /* CategoryTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,14 +349,6 @@
 				E423B35318D191ED00D32930 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E423B35B18D191ED00D32930 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E423B35C18D191ED00D32930 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		E423B37118D191ED00D32930 /* InfoPlist.strings */ = {
@@ -380,6 +440,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Book List/Book List-Prefix.pch";
 				INFOPLIST_FILE = "Book List/Book List-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -393,6 +454,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Book List/Book List-Prefix.pch";
 				INFOPLIST_FILE = "Book List/Book List-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

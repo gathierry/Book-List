@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BLMainViewController.h"
+
 @interface BLAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
