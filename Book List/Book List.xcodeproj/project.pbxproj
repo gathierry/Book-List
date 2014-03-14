@@ -32,6 +32,16 @@
 		E423B3AA18D1FD4800D32930 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B3A818D1FD4800D32930 /* ListTableViewCell.m */; };
 		E423B3AD18D1FD6100D32930 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B3AC18D1FD6100D32930 /* CategoryTableViewCell.m */; };
 		E423B3AE18D1FD6100D32930 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B3AC18D1FD6100D32930 /* CategoryTableViewCell.m */; };
+		E4937BD518D297D200E8F661 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4937BD418D297D200E8F661 /* CoreData.framework */; };
+		E4937BD918D2988000E8F661 /* BLCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4937BD718D2988000E8F661 /* BLCoreData.xcdatamodeld */; };
+		E4937BDC18D299BD00E8F661 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BDB18D299BD00E8F661 /* Book.m */; };
+		E4937BDD18D299BD00E8F661 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BDB18D299BD00E8F661 /* Book.m */; };
+		E4937BE018D2A21600E8F661 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = E4937BDF18D2A21600E8F661 /* list.png */; };
+		E4937BE118D2A21600E8F661 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = E4937BDF18D2A21600E8F661 /* list.png */; };
+		E4937BE418D2B2F100E8F661 /* NewBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BE318D2B2F100E8F661 /* NewBookViewController.m */; };
+		E4937BE518D2B2F100E8F661 /* NewBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BE318D2B2F100E8F661 /* NewBookViewController.m */; };
+		E4937BE818D2BF7D00E8F661 /* NBInfoInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BE718D2BF7D00E8F661 /* NBInfoInputTableViewCell.m */; };
+		E4937BE918D2BF7D00E8F661 /* NBInfoInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BE718D2BF7D00E8F661 /* NBInfoInputTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +84,15 @@
 		E423B3A818D1FD4800D32930 /* ListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListTableViewCell.m; path = "Book List/Views/ListTableViewCell.m"; sourceTree = "<group>"; };
 		E423B3AB18D1FD6100D32930 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryTableViewCell.h; path = "Book List/Views/CategoryTableViewCell.h"; sourceTree = "<group>"; };
 		E423B3AC18D1FD6100D32930 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryTableViewCell.m; path = "Book List/Views/CategoryTableViewCell.m"; sourceTree = "<group>"; };
+		E4937BD418D297D200E8F661 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E4937BD818D2988000E8F661 /* BLCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BLCoreData.xcdatamodel; sourceTree = "<group>"; };
+		E4937BDA18D299BD00E8F661 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Book.h; path = Models/Book.h; sourceTree = "<group>"; };
+		E4937BDB18D299BD00E8F661 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Book.m; path = Models/Book.m; sourceTree = "<group>"; };
+		E4937BDF18D2A21600E8F661 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list.png; path = Resources/list.png; sourceTree = "<group>"; };
+		E4937BE218D2B2F100E8F661 /* NewBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewBookViewController.h; path = "Book List/Controllers/NewBookViewController.h"; sourceTree = "<group>"; };
+		E4937BE318D2B2F100E8F661 /* NewBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewBookViewController.m; path = "Book List/Controllers/NewBookViewController.m"; sourceTree = "<group>"; };
+		E4937BE618D2BF7D00E8F661 /* NBInfoInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBInfoInputTableViewCell.h; path = "Book List/Views/NBInfoInputTableViewCell.h"; sourceTree = "<group>"; };
+		E4937BE718D2BF7D00E8F661 /* NBInfoInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBInfoInputTableViewCell.m; path = "Book List/Views/NBInfoInputTableViewCell.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4937BD518D297D200E8F661 /* CoreData.framework in Frameworks */,
 				E423B39A18D1D8F500D32930 /* QuartzCore.framework in Frameworks */,
 				E423B34C18D191ED00D32930 /* CoreGraphics.framework in Frameworks */,
 				E423B34E18D191ED00D32930 /* UIKit.framework in Frameworks */,
@@ -123,6 +143,7 @@
 		E423B34818D191ED00D32930 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4937BD418D297D200E8F661 /* CoreData.framework */,
 				E423B39918D1D8F500D32930 /* QuartzCore.framework */,
 				E423B34918D191ED00D32930 /* Foundation.framework */,
 				E423B34B18D191ED00D32930 /* CoreGraphics.framework */,
@@ -135,6 +156,8 @@
 		E423B34F18D191ED00D32930 /* Book List */ = {
 			isa = PBXGroup;
 			children = (
+				E4937BDE18D2A20000E8F661 /* Resources */,
+				E4937BD618D2984C00E8F661 /* Models */,
 				E423B39418D1D88000D32930 /* Libs */,
 				E423B38318D1965800D32930 /* Views */,
 				E423B38218D195DD00D32930 /* Controllers */,
@@ -180,6 +203,8 @@
 			children = (
 				E423B3A318D1F98000D32930 /* BLMainViewController.h */,
 				E423B3A418D1F98000D32930 /* BLMainViewController.m */,
+				E4937BE218D2B2F100E8F661 /* NewBookViewController.h */,
+				E4937BE318D2B2F100E8F661 /* NewBookViewController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -188,6 +213,8 @@
 		E423B38318D1965800D32930 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E4937BE618D2BF7D00E8F661 /* NBInfoInputTableViewCell.h */,
+				E4937BE718D2BF7D00E8F661 /* NBInfoInputTableViewCell.m */,
 				E423B3A718D1FD4800D32930 /* ListTableViewCell.h */,
 				E423B3A818D1FD4800D32930 /* ListTableViewCell.m */,
 				E423B3AB18D1FD6100D32930 /* CategoryTableViewCell.h */,
@@ -208,6 +235,24 @@
 			children = (
 			);
 			name = Libs;
+			sourceTree = "<group>";
+		};
+		E4937BD618D2984C00E8F661 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E4937BD718D2988000E8F661 /* BLCoreData.xcdatamodeld */,
+				E4937BDA18D299BD00E8F661 /* Book.h */,
+				E4937BDB18D299BD00E8F661 /* Book.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		E4937BDE18D2A20000E8F661 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E4937BDF18D2A21600E8F661 /* list.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +334,7 @@
 			files = (
 				E423B36218D191ED00D32930 /* Images.xcassets in Resources */,
 				E423B35418D191ED00D32930 /* InfoPlist.strings in Resources */,
+				E4937BE018D2A21600E8F661 /* list.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E423B37318D191ED00D32930 /* InfoPlist.strings in Resources */,
+				E4937BE118D2A21600E8F661 /* list.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +354,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4937BE818D2BF7D00E8F661 /* NBInfoInputTableViewCell.m in Sources */,
+				E4937BE418D2B2F100E8F661 /* NewBookViewController.m in Sources */,
+				E4937BDC18D299BD00E8F661 /* Book.m in Sources */,
 				E423B38A18D1979200D32930 /* CWSmartTableViewCell.m in Sources */,
+				E4937BD918D2988000E8F661 /* BLCoreData.xcdatamodeld in Sources */,
 				E423B35A18D191ED00D32930 /* BLAppDelegate.m in Sources */,
 				E423B38618D196A600D32930 /* ListTableView.m in Sources */,
 				E423B3AD18D1FD6100D32930 /* CategoryTableViewCell.m in Sources */,
@@ -322,10 +373,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4937BE918D2BF7D00E8F661 /* NBInfoInputTableViewCell.m in Sources */,
 				E423B38718D196A600D32930 /* ListTableView.m in Sources */,
 				E423B38B18D1979200D32930 /* CWSmartTableViewCell.m in Sources */,
 				E423B3A618D1F98000D32930 /* BLMainViewController.m in Sources */,
+				E4937BE518D2B2F100E8F661 /* NewBookViewController.m in Sources */,
 				E423B3AE18D1FD6100D32930 /* CategoryTableViewCell.m in Sources */,
+				E4937BDD18D299BD00E8F661 /* Book.m in Sources */,
 				E423B3AA18D1FD4800D32930 /* ListTableViewCell.m in Sources */,
 				E423B37518D191ED00D32930 /* Book_ListTests.m in Sources */,
 				E423B39E18D1DFE400D32930 /* CategoryTableView.m in Sources */,
@@ -519,6 +573,7 @@
 				E423B37A18D191ED00D32930 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E423B37B18D191ED00D32930 /* Build configuration list for PBXNativeTarget "Book ListTests" */ = {
 			isa = XCConfigurationList;
@@ -527,8 +582,23 @@
 				E423B37D18D191ED00D32930 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E4937BD718D2988000E8F661 /* BLCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E4937BD818D2988000E8F661 /* BLCoreData.xcdatamodel */,
+			);
+			currentVersion = E4937BD818D2988000E8F661 /* BLCoreData.xcdatamodel */;
+			name = BLCoreData.xcdatamodeld;
+			path = Models/BLCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E423B33E18D191ED00D32930 /* Project object */;
 }

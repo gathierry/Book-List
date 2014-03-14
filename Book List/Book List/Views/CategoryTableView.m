@@ -11,12 +11,14 @@
 @interface CategoryTableView()
 
 @property (nonatomic, retain) UITableView *tableView;
+@property (nonatomic, retain) UINavigationBar *navBar;
 
 @end
 
 @implementation CategoryTableView
 
 @synthesize tableView = _tableView;
+@synthesize navBar = _navBar;
 
 - (UITableView *)tableView
 {
@@ -28,11 +30,21 @@
     return _tableView;
 }
 
+- (UINavigationBar *)navBar
+{
+    if (!_navBar) {
+        _navBar = [[UINavigationBar alloc] initWithFrame:NAV_FRAME];
+        _navBar.backgroundColor = [UIColor orangeColor];
+    }
+    return _navBar;
+}
+
 - (id)initWithFrame:(CGRect)frame 
 {
     self = [super initWithFrame:frame];
     if (self) {
         [self addSubview:self.tableView];
+        [self addSubview:self.navBar];
     }
     return self;
 }
@@ -42,11 +54,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
-}
-
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-    return @[@"1", @"2"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -22,6 +22,8 @@
 @synthesize listTableView = _listTableView;
 @synthesize startPoint = _startPoint;
 
+#pragma mark - Getters
+
 - (CategoryTableView *)categoryTableView
 {
     if (!_categoryTableView) {
@@ -35,11 +37,35 @@
     if (!_listTableView) {
         _listTableView = [[ListTableView alloc] initWithFrame:FULL_FRAME];
         [_listTableView.panGestureRecognizer addTarget:self action:@selector(paningGestureReceive:)];
+        [_listTableView.leftBarButtonItem setTarget:self];
+        [_listTableView.leftBarButtonItem setAction:@selector(alterMode)];
+        [_listTableView.rightBarButtonItem setTarget:self];
+        [_listTableView.rightBarButtonItem setAction:@selector(addNewBook)];
     }
     return _listTableView;
 }
 
+#pragma mark - Gesture Recognizer
+
 #define DISTANCE 260
+
+- (void)alterMode
+{
+    if (!self.listTableView.inactive) {
+        [UIView animateWithDuration:0.3 animations:^{
+            [self moveViewWithX:DISTANCE];
+        } completion:^(BOOL finished) {
+            self.listTableView.inactive = YES;
+        }];
+    }
+    else {
+        [UIView animateWithDuration:0.3 animations:^{
+            [self moveViewWithX:-DISTANCE];
+        } completion:^(BOOL finished) {
+            self.listTableView.inactive = NO;
+        }];
+    }
+}
 
 - (void)moveViewWithX:(float)x
 {
@@ -57,7 +83,7 @@
     
     self.listTableView.frame = frame;
     
-    float scale = (x/6400)+0.95;
+    float scale = (frame.origin.x/DISTANCE/20)+0.95;
     
     self.categoryTableView.transform = CGAffineTransformMakeScale(scale, scale);
     
@@ -74,20 +100,7 @@
         
         if (fabs(touchPoint.x - self.startPoint.x) > 50)
         {
-            if (!self.listTableView.inactive) {
-                [UIView animateWithDuration:0.3 animations:^{
-                    [self moveViewWithX:DISTANCE];
-                } completion:^(BOOL finished) {
-                    self.listTableView.inactive = YES;
-                }];
-            }
-            else {
-                [UIView animateWithDuration:0.3 animations:^{
-                    [self moveViewWithX:-DISTANCE];
-                } completion:^(BOOL finished) {
-                    self.listTableView.inactive = NO;
-                }];
-            }
+            [self alterMode];
             
         }
         else
@@ -131,6 +144,8 @@
     else return;
 }
 
+#pragma mark - View Controller Lifestyle
+
 - (void)loadView
 {
     [super loadView];
@@ -149,5 +164,10 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)addNewBook
+{
+    NewBookViewController *nbvc = [[NewBookViewController alloc] init];
+    [self presentViewController:nbvc animated:YES completion:nil];
+}
 
 @end

@@ -14,5 +14,7 @@
 
 @property (nonatomic) BOOL inactive;
 @property (nonatomic, retain) UIPanGestureRecognizer *panGestureRecognizer;
+@property (nonatomic, retain) UIBarButtonItem *leftBarButtonItem;
+@property (nonatomic, retain) UIBarButtonItem *rightBarButtonItem;
 
 @end

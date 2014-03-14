@@ -10,6 +10,7 @@
 
 #import "CategoryTableView.h"
 #import "ListTableView.h"
+#import "NewBookViewController.h"
 
 @interface BLMainViewController : UIViewController
 
