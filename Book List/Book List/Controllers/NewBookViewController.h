@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 #import "NBInfoInputTableViewCell.h"
 
@@ -20,12 +21,12 @@ typedef enum {
 
 typedef enum {
     NecessaryInfoRowTitle = 0,
-    NecessaryInfoRowRemark,
     NecessaryInfoNumRows
 } NecessaryInfoRows;
 
 typedef enum {
     OptionInfoRowDeadline = 0,
+    OptionInfoRowRemark,
     OptionInfoNumRows
 } OptionInfoRows;
 

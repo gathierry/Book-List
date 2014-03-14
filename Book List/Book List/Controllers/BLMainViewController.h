@@ -14,4 +14,6 @@
 
 @interface BLMainViewController : UIViewController
 
+@property (nonatomic, strong) UIManagedDocument *bookDatabase;
+
 @end

@@ -21,6 +21,7 @@
 @synthesize categoryTableView = _categoryTableView;
 @synthesize listTableView = _listTableView;
 @synthesize startPoint = _startPoint;
+@synthesize bookDatabase = _bookDatabase;
 
 #pragma mark - Getters
 
@@ -43,6 +44,36 @@
         [_listTableView.rightBarButtonItem setAction:@selector(addNewBook)];
     }
     return _listTableView;
+}
+#pragma mark - Setters
+
+- (void)setBookDatabase:(UIManagedDocument *)bookDatabase
+{
+    if (bookDatabase != _bookDatabase) {
+        _bookDatabase =bookDatabase;
+        [self useDocument];
+    }
+}
+
+#pragma mark - Document Operation
+- (void)useDocument
+{
+    //if the document doesn't exist
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[self.bookDatabase.fileURL path]]) {
+        [self.bookDatabase saveToURL:self.bookDatabase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success){
+
+        }];
+    }
+    //it exists but have been closed
+    else if (self.bookDatabase.documentState == UIDocumentStateClosed){
+        [self.bookDatabase openWithCompletionHandler:^(BOOL success){
+            
+        }];
+    }
+    //it's already opened
+    else if (self.bookDatabase.documentState == UIDocumentStateNormal){
+        
+    }
 }
 
 #pragma mark - Gesture Recognizer
@@ -157,6 +188,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (!self.bookDatabase) {
+        NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+        url = [url URLByAppendingPathComponent:@"Default Book Database"];
+        self.bookDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
+    }
 }
 
 - (void)didReceiveMemoryWarning

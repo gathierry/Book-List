@@ -48,6 +48,7 @@
 
 - (void)rightBarButtonItemPressed
 {
+    [self saveData];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -78,27 +79,22 @@
             cell.title = @"新书";
             self.titleTextField = cell.infoTextField;
         }
-        else if (indexPath.row == NecessaryInfoRowRemark) {
+    }
+    else if (indexPath.section == OptionInfo) {
+        if (indexPath.row == NecessaryInfoRowTitle) {
             cell.title = @"详细信息";
             self.remarkTextField = cell.infoTextField;
         }
-    }
-    else if (indexPath.section == OptionInfo) {
-        
     }
     return cell;
 }
 
 #pragma mark - Table View Delegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     if ([self.titleTextField isFirstResponder]) [self.titleTextField resignFirstResponder];
     if ([self.remarkTextField isFirstResponder]) [self.remarkTextField resignFirstResponder];
 }
-
-
-
 
 #pragma mark - View Controller Lifestyle
 
@@ -117,6 +113,10 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)saveData {
+    
 }
 
 
