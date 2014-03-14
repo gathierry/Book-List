@@ -12,6 +12,7 @@
 
 @synthesize title = _title;
 @synthesize infoTextField = _infoTextField;
+@synthesize delegate = _delegate;
 
 #define TITLE_PADDING 20
 #define GENERAL_FONT @"Helvetica-Bold"
@@ -23,9 +24,9 @@
     if (_title != title) _title = title;
     
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(TITLE_PADDING, 0, self.frame.size.width - 2 * TITLE_PADDING, self.frame.size.height)];
-    textField.font = LABEL_FONT;
+    //textField.font = LABEL_FONT;
     textField.placeholder = title;
-    textField.textColor = LABEL_TEXT_COLOR;
+    //textField.textColor = LABEL_TEXT_COLOR;
     [textField setBorderStyle:UITextBorderStyleNone];
     [textField setTextAlignment:NSTextAlignmentLeft];
     [textField setAutocapitalizationType:UITextAutocapitalizationTypeSentences];
@@ -36,11 +37,12 @@
     self.infoTextField = textField;
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self setBackgroundColor:[UIColor clearColor]];
+        
+        
     }
     return self;
 }
@@ -49,6 +51,7 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
+    [self.delegate infoInputTableViewCellDelegate:self];
     return YES;
 }
 

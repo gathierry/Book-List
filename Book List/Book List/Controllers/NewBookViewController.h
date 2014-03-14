@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
 
 #import "NBInfoInputTableViewCell.h"
+#import "NBDeadlineTableViewCell.h"
+#import "Book.h"
+#import "CWAlertView.h"
 
 @interface NewBookViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
@@ -25,9 +27,13 @@ typedef enum {
 } NecessaryInfoRows;
 
 typedef enum {
-    OptionInfoRowDeadline = 0,
-    OptionInfoRowRemark,
+    OptionInfoRowRemark = 0,
+    OptionInfoRowDeadline,
     OptionInfoNumRows
 } OptionInfoRows;
+
+#define OptionInfoRowDatePicker OptionInfoNumRows
+
+@property (nonatomic, strong) UIManagedDocument *bookDatabase;
 
 @end

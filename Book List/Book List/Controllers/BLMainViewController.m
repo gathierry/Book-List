@@ -51,28 +51,36 @@
 {
     if (bookDatabase != _bookDatabase) {
         _bookDatabase =bookDatabase;
-        [self useDocument];
     }
 }
 
 #pragma mark - Document Operation
+- (void)loadDataBase:(UIManagedDocument *)document
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    request.entity = [NSEntityDescription entityForName:@"Book" inManagedObjectContext:document.managedObjectContext];
+    NSError *error = nil;
+    self.listTableView.booksArray = [document.managedObjectContext executeFetchRequest:request error:&error];
+    [self.listTableView reloadData];
+}
+
 - (void)useDocument
 {
     //if the document doesn't exist
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self.bookDatabase.fileURL path]]) {
         [self.bookDatabase saveToURL:self.bookDatabase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success){
-
+            [self loadDataBase:self.bookDatabase];
         }];
     }
     //it exists but have been closed
     else if (self.bookDatabase.documentState == UIDocumentStateClosed){
         [self.bookDatabase openWithCompletionHandler:^(BOOL success){
-            
+            [self loadDataBase:self.bookDatabase];
         }];
     }
     //it's already opened
     else if (self.bookDatabase.documentState == UIDocumentStateNormal){
-        
+        [self loadDataBase:self.bookDatabase];
     }
 }
 
@@ -185,15 +193,16 @@
     [self.view addSubview:self.listTableView];
 }
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
     
     if (!self.bookDatabase) {
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         url = [url URLByAppendingPathComponent:@"Default Book Database"];
         self.bookDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
     }
+    [self useDocument];
 }
 
 - (void)didReceiveMemoryWarning
@@ -204,6 +213,7 @@
 - (void)addNewBook
 {
     NewBookViewController *nbvc = [[NewBookViewController alloc] init];
+    nbvc.bookDatabase = self.bookDatabase;
     [self presentViewController:nbvc animated:YES completion:nil];
 }
 

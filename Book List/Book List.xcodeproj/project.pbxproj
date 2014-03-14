@@ -42,6 +42,11 @@
 		E4937BE518D2B2F100E8F661 /* NewBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BE318D2B2F100E8F661 /* NewBookViewController.m */; };
 		E4937BE818D2BF7D00E8F661 /* NBInfoInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BE718D2BF7D00E8F661 /* NBInfoInputTableViewCell.m */; };
 		E4937BE918D2BF7D00E8F661 /* NBInfoInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BE718D2BF7D00E8F661 /* NBInfoInputTableViewCell.m */; };
+		E4C9FD9418D343AB00F3FC5B /* NBDeadlineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C9FD9318D343AB00F3FC5B /* NBDeadlineTableViewCell.m */; };
+		E4C9FD9718D36B9F00F3FC5B /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C9FD9618D36B9F00F3FC5B /* Common.m */; };
+		E4C9FD9818D36B9F00F3FC5B /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C9FD9618D36B9F00F3FC5B /* Common.m */; };
+		E4DDB66918D307F0000CD085 /* CWAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DDB66818D307F0000CD085 /* CWAlertView.m */; };
+		E4DDB66A18D307F0000CD085 /* CWAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DDB66818D307F0000CD085 /* CWAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +98,12 @@
 		E4937BE318D2B2F100E8F661 /* NewBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewBookViewController.m; path = "Book List/Controllers/NewBookViewController.m"; sourceTree = "<group>"; };
 		E4937BE618D2BF7D00E8F661 /* NBInfoInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBInfoInputTableViewCell.h; path = "Book List/Views/NBInfoInputTableViewCell.h"; sourceTree = "<group>"; };
 		E4937BE718D2BF7D00E8F661 /* NBInfoInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBInfoInputTableViewCell.m; path = "Book List/Views/NBInfoInputTableViewCell.m"; sourceTree = "<group>"; };
+		E4C9FD9218D343AB00F3FC5B /* NBDeadlineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBDeadlineTableViewCell.h; path = "Book List/Views/NBDeadlineTableViewCell.h"; sourceTree = "<group>"; };
+		E4C9FD9318D343AB00F3FC5B /* NBDeadlineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBDeadlineTableViewCell.m; path = "Book List/Views/NBDeadlineTableViewCell.m"; sourceTree = "<group>"; };
+		E4C9FD9518D36B9F00F3FC5B /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = Models/Common.h; sourceTree = "<group>"; };
+		E4C9FD9618D36B9F00F3FC5B /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Common.m; path = Models/Common.m; sourceTree = "<group>"; };
+		E4DDB66718D307F0000CD085 /* CWAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWAlertView.h; path = "Book List/Views/CWAlertView.h"; sourceTree = "<group>"; };
+		E4DDB66818D307F0000CD085 /* CWAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWAlertView.m; path = "Book List/Views/CWAlertView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +224,10 @@
 		E423B38318D1965800D32930 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E4C9FD9218D343AB00F3FC5B /* NBDeadlineTableViewCell.h */,
+				E4C9FD9318D343AB00F3FC5B /* NBDeadlineTableViewCell.m */,
+				E4DDB66718D307F0000CD085 /* CWAlertView.h */,
+				E4DDB66818D307F0000CD085 /* CWAlertView.m */,
 				E4937BE618D2BF7D00E8F661 /* NBInfoInputTableViewCell.h */,
 				E4937BE718D2BF7D00E8F661 /* NBInfoInputTableViewCell.m */,
 				E423B3A718D1FD4800D32930 /* ListTableViewCell.h */,
@@ -240,6 +255,8 @@
 		E4937BD618D2984C00E8F661 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E4C9FD9518D36B9F00F3FC5B /* Common.h */,
+				E4C9FD9618D36B9F00F3FC5B /* Common.m */,
 				E4937BD718D2988000E8F661 /* BLCoreData.xcdatamodeld */,
 				E4937BDA18D299BD00E8F661 /* Book.h */,
 				E4937BDB18D299BD00E8F661 /* Book.m */,
@@ -357,6 +374,7 @@
 				E4937BE818D2BF7D00E8F661 /* NBInfoInputTableViewCell.m in Sources */,
 				E4937BE418D2B2F100E8F661 /* NewBookViewController.m in Sources */,
 				E4937BDC18D299BD00E8F661 /* Book.m in Sources */,
+				E4DDB66918D307F0000CD085 /* CWAlertView.m in Sources */,
 				E423B38A18D1979200D32930 /* CWSmartTableViewCell.m in Sources */,
 				E4937BD918D2988000E8F661 /* BLCoreData.xcdatamodeld in Sources */,
 				E423B35A18D191ED00D32930 /* BLAppDelegate.m in Sources */,
@@ -364,6 +382,8 @@
 				E423B3AD18D1FD6100D32930 /* CategoryTableViewCell.m in Sources */,
 				E423B3A518D1F98000D32930 /* BLMainViewController.m in Sources */,
 				E423B3A918D1FD4800D32930 /* ListTableViewCell.m in Sources */,
+				E4C9FD9418D343AB00F3FC5B /* NBDeadlineTableViewCell.m in Sources */,
+				E4C9FD9718D36B9F00F3FC5B /* Common.m in Sources */,
 				E423B39D18D1DFE400D32930 /* CategoryTableView.m in Sources */,
 				E423B35618D191ED00D32930 /* main.m in Sources */,
 			);
@@ -373,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4C9FD9818D36B9F00F3FC5B /* Common.m in Sources */,
 				E4937BE918D2BF7D00E8F661 /* NBInfoInputTableViewCell.m in Sources */,
 				E423B38718D196A600D32930 /* ListTableView.m in Sources */,
 				E423B38B18D1979200D32930 /* CWSmartTableViewCell.m in Sources */,
@@ -383,6 +404,7 @@
 				E423B3AA18D1FD4800D32930 /* ListTableViewCell.m in Sources */,
 				E423B37518D191ED00D32930 /* Book_ListTests.m in Sources */,
 				E423B39E18D1DFE400D32930 /* CategoryTableView.m in Sources */,
+				E4DDB66A18D307F0000CD085 /* CWAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

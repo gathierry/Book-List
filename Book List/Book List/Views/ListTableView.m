@@ -23,6 +23,7 @@
 @synthesize navBar = _navBar;
 @synthesize leftBarButtonItem = _leftBarButtonItem;
 @synthesize rightBarButtonItem = _rightBarButtonItem;
+@synthesize booksArray = _booksArray;
 
 - (UITableView *)tableView
 {
@@ -81,16 +82,21 @@
     return self;
 }
 
+- (void)reloadData
+{
+    [self.tableView reloadData];
+}
+
 #pragma mark - Data Source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.booksArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -8,12 +8,13 @@
 
 #import "NewBookViewController.h"
 
-@interface NewBookViewController ()
+@interface NewBookViewController () <NBInfoInputTableViewCellDelegate>
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UINavigationBar *navBar;
 @property (nonatomic, retain) UITextField *titleTextField;
 @property (nonatomic, retain) UITextField *remarkTextField;
+@property (nonatomic) BOOL pickingDate;
 
 @end
 
@@ -23,6 +24,10 @@
 @synthesize navBar = _navBar;
 @synthesize titleTextField = _titleTextField;
 @synthesize remarkTextField = _remarkTextField;
+@synthesize bookDatabase = _bookDatabase;
+@synthesize pickingDate = _pickingDate;
+
+#pragma mark - Getters
 
 - (UITableView *)tableView
 {
@@ -46,15 +51,48 @@
     return _navBar;
 }
 
+#pragma mark - Navigation Actions
+
 - (void)rightBarButtonItemPressed
 {
-    [self saveData];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (self.titleTextField.text.length > 0) {
+        [self saveData:self.bookDatabase];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else {
+        [CWAlertView showWithTitle:@"内容不能为空" message:@"请填写必要信息" cancelTitle:@"好" cancelBlock:nil otherTitle:nil otherBlock:nil];
+    }
 }
 
 - (void)leftBarButtonItemPressed
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Date Picker Actions
+
+- (void)displayInlineDatePickerForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.pickingDate = !self.pickingDate;
+    NSIndexPath *pickerIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section];
+    [self.tableView beginUpdates];
+    
+    if (self.pickingDate) {
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:pickerIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+    else {
+        [[self.tableView cellForRowAtIndexPath:pickerIndexPath].contentView.subviews.lastObject removeFromSuperview];;
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:pickerIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+    
+    [self.tableView endUpdates];
+}
+
+- (void)synDateInTableViewCell:(UIDatePicker *)sender
+{
+    NBDeadlineTableViewCell *cell = (NBDeadlineTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:OptionInfoRowDeadline inSection:OptionInfo]];
+    [cell setDate:sender.date];
+    
 }
 
 #pragma mark - Table View Data Source
@@ -67,13 +105,19 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == NecessaryInfo) return NecessaryInfoNumRows;
-    else if (section == OptionInfo) return OptionInfoNumRows;
+    else if (section == OptionInfo) return OptionInfoNumRows + self.pickingDate;
     else return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return (indexPath.section == OptionInfo && indexPath.row == OptionInfoRowDatePicker) ? 216 : 44;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NBInfoInputTableViewCell *cell = [NBInfoInputTableViewCell cellForTableView:tableView];
+    cell.delegate = self;
     if (indexPath.section == NecessaryInfo) {
         if (indexPath.row == NecessaryInfoRowTitle) {
             cell.title = @"新书";
@@ -81,9 +125,23 @@
         }
     }
     else if (indexPath.section == OptionInfo) {
-        if (indexPath.row == NecessaryInfoRowTitle) {
+        if (indexPath.row == OptionInfoRowRemark) {
             cell.title = @"详细信息";
             self.remarkTextField = cell.infoTextField;
+        }
+        else if (indexPath.row == OptionInfoRowDeadline) {
+            NBDeadlineTableViewCell *ddlCell = [NBDeadlineTableViewCell cellForTableView:tableView];
+            return ddlCell;
+        }
+        else if (indexPath.row == OptionInfoRowDatePicker) {
+            UITableViewCell * dpCell = [tableView dequeueReusableCellWithIdentifier:@"datePicker"];
+            if (dpCell == nil) dpCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                              reuseIdentifier:@"datePicker"];
+            UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:dpCell.contentView.frame];
+            datePicker.datePickerMode = UIDatePickerModeDate;
+            [datePicker addTarget:self action:@selector(synDateInTableViewCell:) forControlEvents:UIControlEventValueChanged];
+            [dpCell.contentView addSubview:datePicker];
+            return dpCell;
         }
     }
     return cell;
@@ -94,6 +152,33 @@
 {
     if ([self.titleTextField isFirstResponder]) [self.titleTextField resignFirstResponder];
     if ([self.remarkTextField isFirstResponder]) [self.remarkTextField resignFirstResponder];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == NecessaryInfo) {
+        if (indexPath.row == NecessaryInfoRowTitle) {
+            
+        }
+    }
+    else if (indexPath.section == OptionInfo) {
+        if (indexPath.row == OptionInfoRowRemark) {
+            
+        }
+        else if (indexPath.row == OptionInfoRowDeadline) {
+            [self scrollViewWillBeginDragging:tableView];
+            [self displayInlineDatePickerForRowAtIndexPath:indexPath];
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }
+    }
+}
+
+#pragma mark - NBInfoInputTableViewCell Delegate
+- (void)infoInputTableViewCellDelegate:(NBInfoInputTableViewCell *)sender
+{
+    if (self.pickingDate) {
+        [self displayInlineDatePickerForRowAtIndexPath:[NSIndexPath indexPathForRow:OptionInfoRowDeadline inSection:OptionInfo]];
+    }
 }
 
 #pragma mark - View Controller Lifestyle
@@ -115,8 +200,16 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)saveData {
-    
+- (void)saveData:(UIManagedDocument *)document
+{
+    Book *book = [NSEntityDescription insertNewObjectForEntityForName:@"Book" inManagedObjectContext:document.managedObjectContext];
+    book.title = self.titleTextField.text;
+    book.remark = self.remarkTextField.text;
+    book.id = [NSNumber numberWithInt:23];
+    book.finish = NO;
+    book.deadline = [NSDate date];
+    NSError *error;
+    [document.managedObjectContext save:&error];
 }
 
 
