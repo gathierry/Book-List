@@ -10,7 +10,7 @@
 
 #import "NBInfoInputTableViewCell.h"
 
-@interface NewBookViewController : UIViewController <UITableViewDataSource, UITabBarDelegate, UITextFieldDelegate, UIScrollViewDelegate>
+@interface NewBookViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 typedef enum {
     NecessaryInfo = 0,

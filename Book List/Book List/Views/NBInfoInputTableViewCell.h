@@ -8,7 +8,7 @@
 
 #import "CWSmartTableViewCell.h"
 
-@interface NBInfoInputTableViewCell : CWSmartTableViewCell
+@interface NBInfoInputTableViewCell : CWSmartTableViewCell <UITextFieldDelegate>
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, retain) UITextField *infoTextField;

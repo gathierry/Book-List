@@ -12,6 +12,8 @@
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UINavigationBar *navBar;
+@property (nonatomic, retain) UITextField *titleTextField;
+@property (nonatomic, retain) UITextField *remarkTextField;
 
 @end
 
@@ -19,6 +21,8 @@
 
 @synthesize tableView = _tableView;
 @synthesize navBar = _navBar;
+@synthesize titleTextField = _titleTextField;
+@synthesize remarkTextField = _remarkTextField;
 
 - (UITableView *)tableView
 {
@@ -70,19 +74,18 @@
 {
     NBInfoInputTableViewCell *cell = [NBInfoInputTableViewCell cellForTableView:tableView];
     if (indexPath.section == NecessaryInfo) {
-        cell.infoTextField.tag = indexPath.row;
-        [cell.infoTextField setDelegate:self];
         if (indexPath.row == NecessaryInfoRowTitle) {
             cell.title = @"新书";
+            self.titleTextField = cell.infoTextField;
         }
         else if (indexPath.row == NecessaryInfoRowRemark) {
             cell.title = @"详细信息";
+            self.remarkTextField = cell.infoTextField;
         }
     }
     else if (indexPath.section == OptionInfo) {
         
     }
-    NSLog(@"%@",cell.infoTextField.delegate);
     return cell;
 }
 
@@ -90,21 +93,11 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    
+    if ([self.titleTextField isFirstResponder]) [self.titleTextField resignFirstResponder];
+    if ([self.remarkTextField isFirstResponder]) [self.remarkTextField resignFirstResponder];
 }
 
-#pragma mark - Text Field Delegate
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    return YES;
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
-}
 
 
 #pragma mark - View Controller Lifestyle

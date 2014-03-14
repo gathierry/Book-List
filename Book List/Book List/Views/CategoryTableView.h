@@ -10,6 +10,6 @@
 
 #import "CategoryTableViewCell.h"
 
-@interface CategoryTableView : UIView <UITableViewDataSource, UITabBarDelegate>
+@interface CategoryTableView : UIView <UITableViewDataSource, UITableViewDelegate>
 
 @end

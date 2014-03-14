@@ -31,6 +31,7 @@
     [textField setAutocapitalizationType:UITextAutocapitalizationTypeSentences];
     [textField setAutocorrectionType:UITextAutocorrectionTypeDefault];
     [textField setReturnKeyType:UIReturnKeyDone];
+    textField.delegate = self;
     [self addSubview:textField];
     self.infoTextField = textField;
 }
@@ -42,6 +43,19 @@
         [self setBackgroundColor:[UIColor clearColor]];
     }
     return self;
+}
+
+#pragma mark - Text Field Delegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
