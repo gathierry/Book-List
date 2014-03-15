@@ -113,8 +113,14 @@
         else {
             //need to close one editor and open another
             [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:self.editorIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:nextIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            self.editorIndexPath = nextIndexPath;
+            if ([indexPath compare:self.editorIndexPath] == NSOrderedAscending) {
+                [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:nextIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                self.editorIndexPath = nextIndexPath;
+            }
+            else {
+                [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                self.editorIndexPath = indexPath;
+            }
         }
     }
     [self.tableView endUpdates];
