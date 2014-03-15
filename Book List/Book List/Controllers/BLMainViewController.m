@@ -120,11 +120,6 @@
     }
     
     self.listTableView.frame = frame;
-    
-    float scale = (frame.origin.x/DISTANCE/20)+0.95;
-    
-    self.categoryTableView.transform = CGAffineTransformMakeScale(scale, scale);
-    
 }
 
 

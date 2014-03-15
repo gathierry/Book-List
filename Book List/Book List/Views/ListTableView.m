@@ -77,6 +77,14 @@
     return _panGestureRecognizer;
 }
 
+- (void)setInactive:(BOOL)inactive
+{
+    if (_inactive != inactive) {
+        _inactive = inactive;
+    }
+    self.tableView.userInteractionEnabled = !_inactive;
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
