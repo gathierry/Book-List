@@ -129,25 +129,29 @@
 - (void)doneButtonPressed
 {
     Book *book = [self.booksArray objectAtIndex:self.editorIndexPath.row - 1];
-    book.finish = [NSNumber numberWithBool:![book.finish boolValue]];
-    [Common saveData:self.bookDatabase title:book.title remark:book.remark ID:book.identity deadline:book.deadline finish:[book.finish boolValue] favorite:[book.favorite boolValue]];
+    [Common updateData:self.bookDatabase book:book title:book.title remark:book.remark deadline:book.deadline finish:![book.finish boolValue] favorite:[book.favorite boolValue]];
+    [self displayEditingRowAtIndex:[NSIndexPath indexPathForRow:self.editorIndexPath.row - 1 inSection:self.editorIndexPath.section]];
 }
 
 - (void)deleteButtonPressed
 {
-    //delete from database
+    Book *book = [self.booksArray objectAtIndex:self.editorIndexPath.row - 1];
+    [Common deleteData:self.bookDatabase object:book];
+    self.editorIndexPath = NULL;
+    [self.delegate listTableViewDelegateRefreshData];
+    
 }
 
 - (void)editButtonPressed
 {
-    [self.delegate listTableViewDelegate:self book:[self.booksArray objectAtIndex:self.editorIndexPath.row - 1]];
+    [self.delegate listTableViewDelegate:self editBook:[self.booksArray objectAtIndex:self.editorIndexPath.row - 1]];
 }
 
 - (void)favoriteButtonPressed
 {
     Book *book = [self.booksArray objectAtIndex:self.editorIndexPath.row - 1];
-    book.favorite = [NSNumber numberWithBool:![book.favorite boolValue]];
-    [Common saveData:self.bookDatabase title:book.title remark:book.remark ID:book.identity deadline:book.deadline finish:[book.finish boolValue] favorite:[book.favorite boolValue]];
+    [Common updateData:self.bookDatabase book:book title:book.title remark:book.remark deadline:book.deadline finish:[book.finish boolValue] favorite:![book.favorite boolValue]];
+    [self displayEditingRowAtIndex:[NSIndexPath indexPathForRow:self.editorIndexPath.row - 1 inSection:self.editorIndexPath.section]];
 }
 
 #pragma mark - Data Source
@@ -174,13 +178,14 @@
     }
     ListTableViewCell *listTableViewCell = [ListTableViewCell cellForTableView:tableView];
     Book *book;
-    
     if (self.editorIndexPath &&[indexPath compare:self.editorIndexPath] == NSOrderedDescending) {
         book = [self.booksArray objectAtIndex:indexPath.row - 1];
     }
     else {
         book = [self.booksArray objectAtIndex:indexPath.row];
     }
+    
+    NSLog(@"%d-%d-%d", [book.favorite boolValue], [book.finish boolValue], [book.identity intValue]);
     listTableViewCell.textLabel.text = book.title;
     listTableViewCell.detailTextLabel.text = book.remark;
     if ([book.favorite boolValue]) {
@@ -192,9 +197,10 @@
 #pragma mark - Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ([indexPath compare:self.editorIndexPath] != NSOrderedSame) {
         [self displayEditingRowAtIndex:indexPath];
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 

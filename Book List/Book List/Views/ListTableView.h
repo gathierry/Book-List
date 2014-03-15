@@ -16,7 +16,8 @@
 
 @protocol ListTableViewDelegate <NSObject>
 
-- (void)listTableViewDelegate:(ListTableView *)sender book:(Book *)book;
+- (void)listTableViewDelegate:(ListTableView *)sender editBook:(Book *)book;
+- (void)listTableViewDelegateRefreshData;
 
 @end
 

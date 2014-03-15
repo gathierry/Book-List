@@ -210,9 +210,14 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)listTableViewDelegate:(ListTableView *)sender book:(Book *)book
+- (void)listTableViewDelegate:(ListTableView *)sender editBook:(Book *)book
 {
     [self presentNewBookViewControllerBookID:[book.identity intValue]];
+}
+
+- (void)listTableViewDelegateRefreshData
+{
+    [self loadDataBase:self.bookDatabase];
 }
 
 - (void)addNewBook

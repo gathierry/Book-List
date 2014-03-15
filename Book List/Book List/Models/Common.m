@@ -84,4 +84,12 @@
     [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:nil];
 }
 
++ (void)deleteData:(UIManagedDocument *)document object:(Book *)book
+{
+    [document.managedObjectContext deleteObject:book];
+    NSError *error;
+    [document.managedObjectContext save:&error];
+    [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:nil];
+}
+
 @end

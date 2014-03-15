@@ -27,4 +27,5 @@
             finish:(BOOL)finish
           favorite:(BOOL)favorite;
 + (NSArray *)loadData:(UIManagedDocument *)document sort:(NSSortDescriptor *)sort predicate:(NSPredicate *)predicate;
++ (void)deleteData:(UIManagedDocument *)document object:(Book *)book;
 @end
