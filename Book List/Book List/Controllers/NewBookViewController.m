@@ -12,9 +12,10 @@
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UINavigationBar *navBar;
+@property (nonatomic) BOOL pickingDate;
 @property (nonatomic, retain) UITextField *titleTextField;
 @property (nonatomic, retain) UITextField *remarkTextField;
-@property (nonatomic) BOOL pickingDate;
+@property (nonatomic, strong) Book *book;
 
 @end
 
@@ -26,6 +27,7 @@
 @synthesize remarkTextField = _remarkTextField;
 @synthesize bookDatabase = _bookDatabase;
 @synthesize pickingDate = _pickingDate;
+@synthesize bookID = _bookID;
 
 #pragma mark - Getters
 
@@ -44,6 +46,9 @@
     if (!_navBar) {
         _navBar = [[UINavigationBar alloc] initWithFrame:NAV_FRAME];
         UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"添加新书"];
+        if (_bookID) {
+            item.title = @"编辑信息";
+        }
         item.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(leftBarButtonItemPressed)];
         item.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(rightBarButtonItemPressed)];
         _navBar.items = @[item];
@@ -56,8 +61,14 @@
 - (void)rightBarButtonItemPressed
 {
     if (self.titleTextField.text.length > 0) {
-        [self saveData:self.bookDatabase];
+        if (_bookID) {
+            [Common updateData:self.bookDatabase book:self.book title:self.titleTextField.text remark:self.remarkTextField.text deadline:((NBDeadlineTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:OptionInfoRowDeadline inSection:OptionInfo]]).date finish:[self.book.finish boolValue] favorite:[self.book.favorite boolValue]];
+        }
+        else {
+            [Common saveData:self.bookDatabase title:self.titleTextField.text remark:self.remarkTextField.text ID:[Common refreshBookId] deadline:((NBDeadlineTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:OptionInfoRowDeadline inSection:OptionInfo]]).date finish:NO favorite:NO];
+        }
         [self dismissViewControllerAnimated:YES completion:nil];
+        
     }
     else {
         [CWAlertView showWithTitle:@"内容不能为空" message:@"请填写必要信息" cancelTitle:@"好" cancelBlock:nil otherTitle:nil otherBlock:nil];
@@ -120,17 +131,20 @@
     cell.delegate = self;
     if (indexPath.section == NecessaryInfo) {
         if (indexPath.row == NecessaryInfoRowTitle) {
-            cell.title = @"新书";
+            cell.title = @"书名";
+            cell.infoTextField.text = self.book.title;
             self.titleTextField = cell.infoTextField;
         }
     }
     else if (indexPath.section == OptionInfo) {
         if (indexPath.row == OptionInfoRowRemark) {
             cell.title = @"详细信息";
+            cell.infoTextField.text = self.book.remark;
             self.remarkTextField = cell.infoTextField;
         }
         else if (indexPath.row == OptionInfoRowDeadline) {
             NBDeadlineTableViewCell *ddlCell = [NBDeadlineTableViewCell cellForTableView:tableView];
+            ddlCell.date = self.book.deadline;
             return ddlCell;
         }
         else if (indexPath.row == OptionInfoRowDatePicker) {
@@ -193,6 +207,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (_bookID) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identity == %@", [NSNumber numberWithInt:_bookID]];
+        NSArray *array = [Common loadData:self.bookDatabase sort:nil predicate:predicate];
+        self.book = [array lastObject];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -200,17 +219,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)saveData:(UIManagedDocument *)document
-{
-    Book *book = [NSEntityDescription insertNewObjectForEntityForName:@"Book" inManagedObjectContext:document.managedObjectContext];
-    book.title = self.titleTextField.text;
-    book.remark = self.remarkTextField.text;
-    book.id = [NSNumber numberWithInt:23];
-    book.finish = NO;
-    book.deadline = [NSDate date];
-    NSError *error;
-    [document.managedObjectContext save:&error];
-}
 
 
 @end

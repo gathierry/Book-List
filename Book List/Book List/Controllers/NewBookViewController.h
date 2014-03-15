@@ -36,4 +36,6 @@ typedef enum {
 
 @property (nonatomic, strong) UIManagedDocument *bookDatabase;
 
+@property (nonatomic) int bookID; //if id = 0, this is new
+
 @end

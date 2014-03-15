@@ -37,6 +37,7 @@
 {
     if (!_listTableView) {
         _listTableView = [[ListTableView alloc] initWithFrame:FULL_FRAME];
+        _listTableView.delegate = self;
         [_listTableView.panGestureRecognizer addTarget:self action:@selector(paningGestureReceive:)];
         [_listTableView.leftBarButtonItem setTarget:self];
         [_listTableView.leftBarButtonItem setAction:@selector(alterMode)];
@@ -57,10 +58,8 @@
 #pragma mark - Document Operation
 - (void)loadDataBase:(UIManagedDocument *)document
 {
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    request.entity = [NSEntityDescription entityForName:@"Book" inManagedObjectContext:document.managedObjectContext];
-    NSError *error = nil;
-    self.listTableView.booksArray = [document.managedObjectContext executeFetchRequest:request error:&error];
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES selector:@selector(localizedStandardCompare:)];
+    self.listTableView.booksArray = [Common loadData:document sort:sort predicate:nil];
     [self.listTableView reloadData];
 }
 
@@ -202,6 +201,7 @@
         url = [url URLByAppendingPathComponent:@"Default Book Database"];
         self.bookDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
     }
+    self.listTableView.bookDatabase = self.bookDatabase;
     [self useDocument];
 }
 
@@ -210,9 +210,20 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)listTableViewDelegate:(ListTableView *)sender book:(Book *)book
+{
+    [self presentNewBookViewControllerBookID:[book.identity intValue]];
+}
+
 - (void)addNewBook
 {
+    [self presentNewBookViewControllerBookID:0];
+}
+
+- (void)presentNewBookViewControllerBookID:(int)bookID
+{
     NewBookViewController *nbvc = [[NewBookViewController alloc] init];
+    nbvc.bookID  = bookID;
     nbvc.bookDatabase = self.bookDatabase;
     [self presentViewController:nbvc animated:YES completion:nil];
 }

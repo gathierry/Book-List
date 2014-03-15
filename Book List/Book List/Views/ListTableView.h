@@ -10,6 +10,15 @@
 
 #import "ListTableViewCell.h"
 #import "EditorTableViewCell.h"
+#import "Book.h"
+
+@class ListTableView;
+
+@protocol ListTableViewDelegate <NSObject>
+
+- (void)listTableViewDelegate:(ListTableView *)sender book:(Book *)book;
+
+@end
 
 @interface ListTableView : UIView <UITableViewDataSource, UITableViewDelegate>
 
@@ -18,6 +27,9 @@
 @property (nonatomic, retain) UIBarButtonItem *leftBarButtonItem;
 @property (nonatomic, retain) UIBarButtonItem *rightBarButtonItem;
 @property (nonatomic, strong) NSArray *booksArray;
+@property (nonatomic, strong) UIManagedDocument *bookDatabase;
+
+@property (nonatomic, weak) id<ListTableViewDelegate> delegate;
 
 - (void)reloadData;
 

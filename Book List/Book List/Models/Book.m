@@ -2,7 +2,7 @@
 //  Book.m
 //  Book List
 //
-//  Created by Thierry on 14-3-15.
+//  Created by Thierry on 14-3-16.
 //  Copyright (c) 2014年 Thierry. All rights reserved.
 //
 
@@ -12,10 +12,10 @@
 @implementation Book
 
 @dynamic deadline;
+@dynamic favorite;
 @dynamic finish;
-@dynamic id;
+@dynamic identity;
 @dynamic remark;
 @dynamic title;
-@dynamic favorite;
 
 @end
