@@ -12,6 +12,7 @@
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UINavigationBar *navBar;
+@property (nonatomic, strong) NSIndexPath *editorIndexPath;
 
 @end
 
@@ -24,6 +25,7 @@
 @synthesize leftBarButtonItem = _leftBarButtonItem;
 @synthesize rightBarButtonItem = _rightBarButtonItem;
 @synthesize booksArray = _booksArray;
+@synthesize editorIndexPath = _editorIndexPath;
 
 - (UITableView *)tableView
 {
@@ -87,6 +89,31 @@
     [self.tableView reloadData];
 }
 
+- (void)displayEditingRowAtIndex:(NSIndexPath *)indexPath
+{
+    NSIndexPath *nextIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section];
+    [self.tableView beginUpdates];
+    if (self.editorIndexPath == NULL) {
+        //no editor open one
+        self.editorIndexPath = nextIndexPath;
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:self.editorIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+    else {
+        if ([self.editorIndexPath compare:nextIndexPath] == NSOrderedSame) {
+            //need to close the editor
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:nextIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            self.editorIndexPath = NULL;
+        }
+        else {
+            //need to close one editor and open another
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:self.editorIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:nextIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            self.editorIndexPath = nextIndexPath;
+        }
+    }
+    [self.tableView endUpdates];
+}
+
 #pragma mark - Data Source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -96,17 +123,34 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.booksArray.count;
+    NSLog(@"%@", self.booksArray);
+    return self.booksArray.count + (self.editorIndexPath != NULL);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([indexPath compare:self.editorIndexPath] == NSOrderedSame) {
+        EditorTableViewCell *editorTableViewCell = [EditorTableViewCell cellForTableView:tableView];
+        return editorTableViewCell;
+    }
     ListTableViewCell *listTableViewCell = [ListTableViewCell cellForTableView:tableView];
-    listTableViewCell.textLabel.text = @"list";
+    Book *book = [self.booksArray objectAtIndex:indexPath.row];
+    if ([indexPath compare:self.editorIndexPath] == NSOrderedDescending) {
+        book = [self.booksArray objectAtIndex:indexPath.row - 1];
+    }
+    listTableViewCell.textLabel.text = book.title;
+    listTableViewCell.detailTextLabel.text = book.remark;
+    if ([book.finish boolValue]) {
+        listTableViewCell.textLabel.textColor = [UIColor blueColor];
+    }
     return listTableViewCell;
 }
 
 #pragma mark - Delegate
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self displayEditingRowAtIndex:indexPath];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 @end

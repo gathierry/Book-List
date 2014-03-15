@@ -13,6 +13,7 @@
 + (NSString *)dateToString:(NSDate *)date
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    //[formatter setDateFormat:@"dd/MM/yyyy"];
     [formatter setDateFormat:@"yyyy年MM月dd日"];
     [formatter setTimeZone:[NSTimeZone localTimeZone]];
     return [formatter stringFromDate:date];

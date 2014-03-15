@@ -34,8 +34,6 @@
 		E423B3AE18D1FD6100D32930 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E423B3AC18D1FD6100D32930 /* CategoryTableViewCell.m */; };
 		E4937BD518D297D200E8F661 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4937BD418D297D200E8F661 /* CoreData.framework */; };
 		E4937BD918D2988000E8F661 /* BLCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4937BD718D2988000E8F661 /* BLCoreData.xcdatamodeld */; };
-		E4937BDC18D299BD00E8F661 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BDB18D299BD00E8F661 /* Book.m */; };
-		E4937BDD18D299BD00E8F661 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BDB18D299BD00E8F661 /* Book.m */; };
 		E4937BE018D2A21600E8F661 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = E4937BDF18D2A21600E8F661 /* list.png */; };
 		E4937BE118D2A21600E8F661 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = E4937BDF18D2A21600E8F661 /* list.png */; };
 		E4937BE418D2B2F100E8F661 /* NewBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BE318D2B2F100E8F661 /* NewBookViewController.m */; };
@@ -45,6 +43,18 @@
 		E4C9FD9418D343AB00F3FC5B /* NBDeadlineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C9FD9318D343AB00F3FC5B /* NBDeadlineTableViewCell.m */; };
 		E4C9FD9718D36B9F00F3FC5B /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C9FD9618D36B9F00F3FC5B /* Common.m */; };
 		E4C9FD9818D36B9F00F3FC5B /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C9FD9618D36B9F00F3FC5B /* Common.m */; };
+		E4CC8A3F18D4557E00CA5A92 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E4CC8A3E18D4557E00CA5A92 /* Book.m */; };
+		E4CC8A4018D4557E00CA5A92 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E4CC8A3E18D4557E00CA5A92 /* Book.m */; };
+		E4CC8A4318D4612700CA5A92 /* EditorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4CC8A4218D4612700CA5A92 /* EditorTableViewCell.m */; };
+		E4CC8A4418D4612700CA5A92 /* EditorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4CC8A4218D4612700CA5A92 /* EditorTableViewCell.m */; };
+		E4CC8A4A18D4674400CA5A92 /* Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CC8A4618D4674400CA5A92 /* Edit.png */; };
+		E4CC8A4B18D4674400CA5A92 /* Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CC8A4618D4674400CA5A92 /* Edit.png */; };
+		E4CC8A4C18D4674400CA5A92 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CC8A4718D4674400CA5A92 /* favorite.png */; };
+		E4CC8A4D18D4674400CA5A92 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CC8A4718D4674400CA5A92 /* favorite.png */; };
+		E4CC8A4E18D4674400CA5A92 /* Tick.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CC8A4818D4674400CA5A92 /* Tick.png */; };
+		E4CC8A4F18D4674400CA5A92 /* Tick.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CC8A4818D4674400CA5A92 /* Tick.png */; };
+		E4CC8A5018D4674400CA5A92 /* Trash.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CC8A4918D4674400CA5A92 /* Trash.png */; };
+		E4CC8A5118D4674400CA5A92 /* Trash.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CC8A4918D4674400CA5A92 /* Trash.png */; };
 		E4DDB66918D307F0000CD085 /* CWAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DDB66818D307F0000CD085 /* CWAlertView.m */; };
 		E4DDB66A18D307F0000CD085 /* CWAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DDB66818D307F0000CD085 /* CWAlertView.m */; };
 /* End PBXBuildFile section */
@@ -91,8 +101,6 @@
 		E423B3AC18D1FD6100D32930 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryTableViewCell.m; path = "Book List/Views/CategoryTableViewCell.m"; sourceTree = "<group>"; };
 		E4937BD418D297D200E8F661 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E4937BD818D2988000E8F661 /* BLCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BLCoreData.xcdatamodel; sourceTree = "<group>"; };
-		E4937BDA18D299BD00E8F661 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Book.h; path = Models/Book.h; sourceTree = "<group>"; };
-		E4937BDB18D299BD00E8F661 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Book.m; path = Models/Book.m; sourceTree = "<group>"; };
 		E4937BDF18D2A21600E8F661 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list.png; path = Resources/list.png; sourceTree = "<group>"; };
 		E4937BE218D2B2F100E8F661 /* NewBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewBookViewController.h; path = "Book List/Controllers/NewBookViewController.h"; sourceTree = "<group>"; };
 		E4937BE318D2B2F100E8F661 /* NewBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewBookViewController.m; path = "Book List/Controllers/NewBookViewController.m"; sourceTree = "<group>"; };
@@ -102,6 +110,14 @@
 		E4C9FD9318D343AB00F3FC5B /* NBDeadlineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBDeadlineTableViewCell.m; path = "Book List/Views/NBDeadlineTableViewCell.m"; sourceTree = "<group>"; };
 		E4C9FD9518D36B9F00F3FC5B /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = Models/Common.h; sourceTree = "<group>"; };
 		E4C9FD9618D36B9F00F3FC5B /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Common.m; path = Models/Common.m; sourceTree = "<group>"; };
+		E4CC8A3D18D4557E00CA5A92 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Book.h; path = Models/Book.h; sourceTree = "<group>"; };
+		E4CC8A3E18D4557E00CA5A92 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Book.m; path = Models/Book.m; sourceTree = "<group>"; };
+		E4CC8A4118D4612700CA5A92 /* EditorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditorTableViewCell.h; path = "Book List/Views/EditorTableViewCell.h"; sourceTree = "<group>"; };
+		E4CC8A4218D4612700CA5A92 /* EditorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditorTableViewCell.m; path = "Book List/Views/EditorTableViewCell.m"; sourceTree = "<group>"; };
+		E4CC8A4618D4674400CA5A92 /* Edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Edit.png; path = Resources/Edit.png; sourceTree = "<group>"; };
+		E4CC8A4718D4674400CA5A92 /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favorite.png; path = Resources/favorite.png; sourceTree = "<group>"; };
+		E4CC8A4818D4674400CA5A92 /* Tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tick.png; path = Resources/Tick.png; sourceTree = "<group>"; };
+		E4CC8A4918D4674400CA5A92 /* Trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Trash.png; path = Resources/Trash.png; sourceTree = "<group>"; };
 		E4DDB66718D307F0000CD085 /* CWAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWAlertView.h; path = "Book List/Views/CWAlertView.h"; sourceTree = "<group>"; };
 		E4DDB66818D307F0000CD085 /* CWAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWAlertView.m; path = "Book List/Views/CWAlertView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,20 +240,11 @@
 		E423B38318D1965800D32930 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E4C9FD9218D343AB00F3FC5B /* NBDeadlineTableViewCell.h */,
-				E4C9FD9318D343AB00F3FC5B /* NBDeadlineTableViewCell.m */,
+				E4CC8A4518D4612C00CA5A92 /* TableViewCells */,
 				E4DDB66718D307F0000CD085 /* CWAlertView.h */,
 				E4DDB66818D307F0000CD085 /* CWAlertView.m */,
-				E4937BE618D2BF7D00E8F661 /* NBInfoInputTableViewCell.h */,
-				E4937BE718D2BF7D00E8F661 /* NBInfoInputTableViewCell.m */,
-				E423B3A718D1FD4800D32930 /* ListTableViewCell.h */,
-				E423B3A818D1FD4800D32930 /* ListTableViewCell.m */,
-				E423B3AB18D1FD6100D32930 /* CategoryTableViewCell.h */,
-				E423B3AC18D1FD6100D32930 /* CategoryTableViewCell.m */,
 				E423B39B18D1DFE400D32930 /* CategoryTableView.h */,
 				E423B39C18D1DFE400D32930 /* CategoryTableView.m */,
-				E423B38818D1979200D32930 /* CWSmartTableViewCell.h */,
-				E423B38918D1979200D32930 /* CWSmartTableViewCell.m */,
 				E423B38418D196A600D32930 /* ListTableView.h */,
 				E423B38518D196A600D32930 /* ListTableView.m */,
 			);
@@ -257,9 +264,9 @@
 			children = (
 				E4C9FD9518D36B9F00F3FC5B /* Common.h */,
 				E4C9FD9618D36B9F00F3FC5B /* Common.m */,
+				E4CC8A3D18D4557E00CA5A92 /* Book.h */,
+				E4CC8A3E18D4557E00CA5A92 /* Book.m */,
 				E4937BD718D2988000E8F661 /* BLCoreData.xcdatamodeld */,
-				E4937BDA18D299BD00E8F661 /* Book.h */,
-				E4937BDB18D299BD00E8F661 /* Book.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -267,9 +274,32 @@
 		E4937BDE18D2A20000E8F661 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4CC8A4618D4674400CA5A92 /* Edit.png */,
+				E4CC8A4718D4674400CA5A92 /* favorite.png */,
+				E4CC8A4818D4674400CA5A92 /* Tick.png */,
+				E4CC8A4918D4674400CA5A92 /* Trash.png */,
 				E4937BDF18D2A21600E8F661 /* list.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		E4CC8A4518D4612C00CA5A92 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				E4CC8A4118D4612700CA5A92 /* EditorTableViewCell.h */,
+				E4CC8A4218D4612700CA5A92 /* EditorTableViewCell.m */,
+				E4C9FD9218D343AB00F3FC5B /* NBDeadlineTableViewCell.h */,
+				E4C9FD9318D343AB00F3FC5B /* NBDeadlineTableViewCell.m */,
+				E4937BE618D2BF7D00E8F661 /* NBInfoInputTableViewCell.h */,
+				E4937BE718D2BF7D00E8F661 /* NBInfoInputTableViewCell.m */,
+				E423B3A718D1FD4800D32930 /* ListTableViewCell.h */,
+				E423B3A818D1FD4800D32930 /* ListTableViewCell.m */,
+				E423B3AB18D1FD6100D32930 /* CategoryTableViewCell.h */,
+				E423B3AC18D1FD6100D32930 /* CategoryTableViewCell.m */,
+				E423B38818D1979200D32930 /* CWSmartTableViewCell.h */,
+				E423B38918D1979200D32930 /* CWSmartTableViewCell.m */,
+			);
+			name = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,7 +379,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4CC8A5018D4674400CA5A92 /* Trash.png in Resources */,
+				E4CC8A4E18D4674400CA5A92 /* Tick.png in Resources */,
 				E423B36218D191ED00D32930 /* Images.xcassets in Resources */,
+				E4CC8A4C18D4674400CA5A92 /* favorite.png in Resources */,
+				E4CC8A4A18D4674400CA5A92 /* Edit.png in Resources */,
 				E423B35418D191ED00D32930 /* InfoPlist.strings in Resources */,
 				E4937BE018D2A21600E8F661 /* list.png in Resources */,
 			);
@@ -359,8 +393,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4CC8A5118D4674400CA5A92 /* Trash.png in Resources */,
+				E4CC8A4B18D4674400CA5A92 /* Edit.png in Resources */,
 				E423B37318D191ED00D32930 /* InfoPlist.strings in Resources */,
+				E4CC8A4F18D4674400CA5A92 /* Tick.png in Resources */,
 				E4937BE118D2A21600E8F661 /* list.png in Resources */,
+				E4CC8A4D18D4674400CA5A92 /* favorite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,7 +411,6 @@
 			files = (
 				E4937BE818D2BF7D00E8F661 /* NBInfoInputTableViewCell.m in Sources */,
 				E4937BE418D2B2F100E8F661 /* NewBookViewController.m in Sources */,
-				E4937BDC18D299BD00E8F661 /* Book.m in Sources */,
 				E4DDB66918D307F0000CD085 /* CWAlertView.m in Sources */,
 				E423B38A18D1979200D32930 /* CWSmartTableViewCell.m in Sources */,
 				E4937BD918D2988000E8F661 /* BLCoreData.xcdatamodeld in Sources */,
@@ -382,6 +419,8 @@
 				E423B3AD18D1FD6100D32930 /* CategoryTableViewCell.m in Sources */,
 				E423B3A518D1F98000D32930 /* BLMainViewController.m in Sources */,
 				E423B3A918D1FD4800D32930 /* ListTableViewCell.m in Sources */,
+				E4CC8A4318D4612700CA5A92 /* EditorTableViewCell.m in Sources */,
+				E4CC8A3F18D4557E00CA5A92 /* Book.m in Sources */,
 				E4C9FD9418D343AB00F3FC5B /* NBDeadlineTableViewCell.m in Sources */,
 				E4C9FD9718D36B9F00F3FC5B /* Common.m in Sources */,
 				E423B39D18D1DFE400D32930 /* CategoryTableView.m in Sources */,
@@ -396,11 +435,12 @@
 				E4C9FD9818D36B9F00F3FC5B /* Common.m in Sources */,
 				E4937BE918D2BF7D00E8F661 /* NBInfoInputTableViewCell.m in Sources */,
 				E423B38718D196A600D32930 /* ListTableView.m in Sources */,
+				E4CC8A4418D4612700CA5A92 /* EditorTableViewCell.m in Sources */,
 				E423B38B18D1979200D32930 /* CWSmartTableViewCell.m in Sources */,
+				E4CC8A4018D4557E00CA5A92 /* Book.m in Sources */,
 				E423B3A618D1F98000D32930 /* BLMainViewController.m in Sources */,
 				E4937BE518D2B2F100E8F661 /* NewBookViewController.m in Sources */,
 				E423B3AE18D1FD6100D32930 /* CategoryTableViewCell.m in Sources */,
-				E4937BDD18D299BD00E8F661 /* Book.m in Sources */,
 				E423B3AA18D1FD4800D32930 /* ListTableViewCell.m in Sources */,
 				E423B37518D191ED00D32930 /* Book_ListTests.m in Sources */,
 				E423B39E18D1DFE400D32930 /* CategoryTableView.m in Sources */,

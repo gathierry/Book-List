@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "ListTableViewCell.h"
+#import "EditorTableViewCell.h"
 
 @interface ListTableView : UIView <UITableViewDataSource, UITableViewDelegate>
 
