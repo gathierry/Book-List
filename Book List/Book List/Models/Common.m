@@ -43,7 +43,7 @@
           finish:(BOOL)finish
         favorite:(BOOL)favorite
 {
-    Book *oneBook = [NSEntityDescription insertNewObjectForEntityForName:@"Book" inManagedObjectContext:document.managedObjectContext];
+    Book *oneBook = [NSEntityDescription insertNewObjectForEntityForName:BOOK_ENTITY_NAME inManagedObjectContext:document.managedObjectContext];
     oneBook.title = title;
     oneBook.remark = remark;
     oneBook.identity = identity;
@@ -55,12 +55,12 @@
     [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:nil];
 }
 
-+ (NSArray *)loadData:(UIManagedDocument *)document sort:(NSSortDescriptor *)sort predicate:(NSPredicate *)predicate
++ (NSArray *)loadData:(UIManagedDocument *)document sort:(NSArray *)sorts predicate:(NSPredicate *)predicate
 {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    request.entity = [NSEntityDescription entityForName:@"Book" inManagedObjectContext:document.managedObjectContext];
+    request.entity = [NSEntityDescription entityForName:BOOK_ENTITY_NAME inManagedObjectContext:document.managedObjectContext];
     NSError *error = nil;
-    if (sort) request.sortDescriptors = [NSArray arrayWithObject:sort];
+    if (sorts.count) request.sortDescriptors = sorts;
     if (predicate) request.predicate = predicate;
     NSArray *fetchResultArray = [document.managedObjectContext executeFetchRequest:request error:&error];
     return fetchResultArray;

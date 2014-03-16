@@ -11,7 +11,6 @@
 @interface ListTableView()
 
 @property (nonatomic, retain) UITableView *tableView;
-@property (nonatomic, retain) UINavigationBar *navBar;
 @property (nonatomic, strong) NSIndexPath *editorIndexPath;
 
 @end
@@ -45,7 +44,7 @@
 {
     if (!_navBar) {
         _navBar = [[UINavigationBar alloc] initWithFrame:NAV_FRAME];
-        UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"书单"];
+        UINavigationItem *item = [[UINavigationItem alloc] init];
         item.leftBarButtonItem = self.leftBarButtonItem;
         item.rightBarButtonItem = self.rightBarButtonItem;
         _navBar.items = @[item];
@@ -197,7 +196,7 @@
         book = [self.booksArray objectAtIndex:indexPath.row];
     }
     
-    NSLog(@"%d-%d-%d", [book.favorite boolValue], [book.finish boolValue], [book.identity intValue]);
+    NSLog(@"like:%d-fini:%d-id:%d", [book.favorite boolValue], [book.finish boolValue], [book.identity intValue]);
     listTableViewCell.textLabel.text = book.title;
     listTableViewCell.detailTextLabel.text = book.remark;
     listTableViewCell.textLabel.textColor = [book.finish boolValue] ? [UIColor blueColor] : [UIColor blackColor];

@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#define BOOK_ENTITY_NAME @"Book"
+#define ID_ATTRIBUTION_NAME @"identity"
+#define DDL_ATTRIBUTION_NAME @"deadline"
+#define FINISH_ATTRIBUTION_NAME @"finish"
+#define FAVORITE_ATTRIBUTION_NAME @"favorite"
+
 @interface Common : NSObject
 
 + (NSString *)dateToString:(NSDate *)date;
@@ -26,6 +32,6 @@
           deadline:(NSDate *)deadline
             finish:(BOOL)finish
           favorite:(BOOL)favorite;
-+ (NSArray *)loadData:(UIManagedDocument *)document sort:(NSSortDescriptor *)sort predicate:(NSPredicate *)predicate;
++ (NSArray *)loadData:(UIManagedDocument *)document sort:(NSArray *)sorts predicate:(NSPredicate *)predicate;
 + (void)deleteData:(UIManagedDocument *)document object:(Book *)book;
 @end

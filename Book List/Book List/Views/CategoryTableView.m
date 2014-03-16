@@ -10,7 +10,6 @@
 
 @interface CategoryTableView()
 
-@property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UINavigationBar *navBar;
 
 @end
@@ -19,6 +18,7 @@
 
 @synthesize tableView = _tableView;
 @synthesize navBar = _navBar;
+@synthesize delegate = _delegate;
 
 - (UITableView *)tableView
 {
@@ -45,6 +45,7 @@
     if (self) {
         [self addSubview:self.tableView];
         [self addSubview:self.navBar];
+        [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].selected = YES;
     }
     return self;
 }
@@ -53,21 +54,41 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return CategoryNumSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    if (section == stantardSection) {
+        return stantardSectionNumRows;
+    };
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CategoryTableViewCell *categoryTableViewCell = [CategoryTableViewCell cellForTableView:tableView];
-    categoryTableViewCell.textLabel.text = @"category";
+    if (indexPath.section == stantardSection) {
+        if (indexPath.row == stantardSectionRowAll) {
+            categoryTableViewCell.textLabel.text = @"全部书单";
+        }
+        else if (indexPath.row == stantardSectionRowWishToRead) {
+            categoryTableViewCell.textLabel.text = @"想读的书";
+        }
+        else if (indexPath.row == stantardSectionRowFinished) {
+            categoryTableViewCell.textLabel.text = @"读过的书";
+        }
+        else if (indexPath.row == stantardSectionRowFavorite) {
+            categoryTableViewCell.textLabel.text = @"我的最爱";
+        }
+    }
     return categoryTableViewCell;
 }
 
 #pragma mark - Delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.delegate categoryTableViewDelegate:self tableView:tableView selectIndexPath:indexPath];
+}
 
 @end

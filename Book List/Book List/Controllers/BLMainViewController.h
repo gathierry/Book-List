@@ -12,7 +12,7 @@
 #import "ListTableView.h"
 #import "NewBookViewController.h"
 
-@interface BLMainViewController : UIViewController <ListTableViewDelegate>
+@interface BLMainViewController : UIViewController <ListTableViewDelegate, CategoryTableViewDelegate>
 
 @property (nonatomic, strong) UIManagedDocument *bookDatabase;
 

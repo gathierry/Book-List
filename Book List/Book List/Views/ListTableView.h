@@ -29,6 +29,7 @@
 @property (nonatomic, retain) UIBarButtonItem *rightBarButtonItem;
 @property (nonatomic, strong) NSArray *booksArray;
 @property (nonatomic, strong) UIManagedDocument *bookDatabase;
+@property (nonatomic, retain) UINavigationBar *navBar;
 
 @property (nonatomic, weak) id<ListTableViewDelegate> delegate;
 

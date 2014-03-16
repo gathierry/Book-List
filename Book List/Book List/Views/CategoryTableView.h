@@ -10,6 +10,33 @@
 
 #import "CategoryTableViewCell.h"
 
+@class CategoryTableView;
+
+@protocol  CategoryTableViewDelegate <NSObject>
+
+- (void)categoryTableViewDelegate:(CategoryTableView *)sender tableView:(UITableView *)tableView selectIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
 @interface CategoryTableView : UIView <UITableViewDataSource, UITableViewDelegate>
 
+typedef enum {
+    stantardSection = 0,
+    CategoryNumSections
+    
+} CategorySections;
+
+typedef enum {
+    stantardSectionRowAll = 0,
+    stantardSectionRowWishToRead,
+    stantardSectionRowFinished,
+    stantardSectionRowFavorite,
+    stantardSectionNumRows
+} StantardRows;
+
+@property (nonatomic, retain) UITableView *tableView;
+
+@property (nonatomic, weak) id<CategoryTableViewDelegate> delegate;
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 @end

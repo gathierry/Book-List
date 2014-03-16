@@ -13,6 +13,7 @@
 @property (nonatomic, retain) CategoryTableView *categoryTableView;
 @property (nonatomic, retain) ListTableView * listTableView;
 @property (nonatomic) CGPoint startPoint;
+@property (nonatomic) StantardRows categorySelectedRow;
 
 @end
 
@@ -22,6 +23,7 @@
 @synthesize listTableView = _listTableView;
 @synthesize startPoint = _startPoint;
 @synthesize bookDatabase = _bookDatabase;
+@synthesize categorySelectedRow = _categorySelectedRow;
 
 #pragma mark - Getters
 
@@ -29,6 +31,7 @@
 {
     if (!_categoryTableView) {
         _categoryTableView = [[CategoryTableView alloc] initWithFrame:FULL_FRAME];
+        _categoryTableView.delegate = self;
     }
     return _categoryTableView;
 }
@@ -58,8 +61,28 @@
 #pragma mark - Document Operation
 - (void)loadDataBase:(UIManagedDocument *)document
 {
-    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"identity" ascending:YES];
-    self.listTableView.booksArray = [Common loadData:document sort:sort predicate:nil];
+    NSSortDescriptor *sortByID = [NSSortDescriptor sortDescriptorWithKey:ID_ATTRIBUTION_NAME ascending:YES];
+    NSSortDescriptor *sortByDeadline = [NSSortDescriptor sortDescriptorWithKey:DDL_ATTRIBUTION_NAME ascending:YES];
+    NSPredicate *predicate = nil;
+    NSArray *sortArray = [NSArray array];
+    if (self.categorySelectedRow == stantardSectionRowAll) {
+        sortArray = [NSArray arrayWithObjects:sortByDeadline, sortByID, nil];
+    }
+    else if (self.categorySelectedRow == stantardSectionRowWishToRead) {
+        predicate = [NSPredicate predicateWithFormat:@"%K == %@", FINISH_ATTRIBUTION_NAME,  [NSNumber numberWithBool:NO]];
+        sortArray = [NSArray arrayWithObjects:sortByDeadline, sortByID, nil];
+    }
+    else if (self.categorySelectedRow == stantardSectionRowFinished) {
+        predicate = [NSPredicate predicateWithFormat:@"%K == %@", FINISH_ATTRIBUTION_NAME,  [NSNumber numberWithBool:YES]];
+        sortArray = [NSArray arrayWithObjects:sortByID, nil];
+    }
+    else if (self.categorySelectedRow == stantardSectionRowFavorite) {
+        predicate = [NSPredicate predicateWithFormat:@"%K == %@", FAVORITE_ATTRIBUTION_NAME,  [NSNumber numberWithBool:YES]];
+        sortArray = [NSArray arrayWithObjects:sortByID, nil];
+    }
+    
+    self.listTableView.booksArray = [Common loadData:document sort:sortArray predicate:predicate];
+    
     [self.listTableView reloadData];
 }
 
@@ -185,6 +208,7 @@
     
     [self.view addSubview:self.categoryTableView];
     [self.view addSubview:self.listTableView];
+    self.categorySelectedRow = stantardSectionRowAll;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -197,13 +221,17 @@
         self.bookDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
     }
     self.listTableView.bookDatabase = self.bookDatabase;
-    [self useDocument];
+    [self.categoryTableView.tableView reloadData];
+    [self.categoryTableView tableView:self.categoryTableView.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:_categorySelectedRow inSection:0]];
+    [self alterMode];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
+
+#pragma mark - Delegates
 
 - (void)listTableViewDelegate:(ListTableView *)sender editBook:(Book *)book
 {
@@ -214,6 +242,19 @@
 {
     [self loadDataBase:self.bookDatabase];
 }
+
+- (void)categoryTableViewDelegate:(CategoryTableView *)sender tableView:(UITableView *)tableView selectIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    ((UINavigationItem *)[self.listTableView.navBar.items lastObject]).title = cell.textLabel.text;
+    //reload data
+    self.categorySelectedRow = indexPath.row;
+    [self useDocument];
+    
+    [self alterMode];
+}
+
+#pragma mark - New View Controller
 
 - (void)addNewBook
 {

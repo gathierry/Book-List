@@ -208,7 +208,7 @@
 {
     [super viewDidLoad];
     if (_bookID) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identity == %@", [NSNumber numberWithInt:_bookID]];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", ID_ATTRIBUTION_NAME, [NSNumber numberWithInt:_bookID]];
         NSArray *array = [Common loadData:self.bookDatabase sort:nil predicate:predicate];
         self.book = [array lastObject];
     }
