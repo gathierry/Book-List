@@ -55,6 +55,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [Common setExtraCellLineHidden:self.tableView];
         [self addSubview:self.tableView];
         [self addSubview:self.navBar];
         [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].selected = YES;
@@ -81,16 +82,21 @@
 {
     CategoryTableViewCell *categoryTableViewCell = [CategoryTableViewCell cellForTableView:tableView];
     if (indexPath.section == stantardSection) {
+        categoryTableViewCell.textLabel.font = [UIFont systemFontOfSize:15.0];
         if (indexPath.row == stantardSectionRowAll) {
+            categoryTableViewCell.imageView.image = [UIImage imageNamed:@"book.png"];
             categoryTableViewCell.textLabel.text = @"全部书单";
         }
         else if (indexPath.row == stantardSectionRowWishToRead) {
+            categoryTableViewCell.imageView.image = [UIImage imageNamed:@"look.png"];
             categoryTableViewCell.textLabel.text = @"想读的书";
         }
         else if (indexPath.row == stantardSectionRowFinished) {
+            categoryTableViewCell.imageView.image = [UIImage imageNamed:@"folder.png"];
             categoryTableViewCell.textLabel.text = @"读过的书";
         }
         else if (indexPath.row == stantardSectionRowFavorite) {
+            categoryTableViewCell.imageView.image = [UIImage imageNamed:@"star.png"];
             categoryTableViewCell.textLabel.text = @"我的最爱";
         }
     }
@@ -98,6 +104,11 @@
 }
 
 #pragma mark - Delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 40;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.delegate categoryTableViewDelegate:self tableView:tableView selectIndexPath:indexPath];

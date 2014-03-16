@@ -153,6 +153,7 @@
                                               reuseIdentifier:@"datePicker"];
             UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:dpCell.contentView.frame];
             datePicker.datePickerMode = UIDatePickerModeDate;
+            datePicker.minimumDate = [NSDate date];
             [datePicker addTarget:self action:@selector(synDateInTableViewCell:) forControlEvents:UIControlEventValueChanged];
             [dpCell.contentView addSubview:datePicker];
             return dpCell;

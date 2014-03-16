@@ -40,8 +40,6 @@
 		E4937BE518D2B2F100E8F661 /* NewBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BE318D2B2F100E8F661 /* NewBookViewController.m */; };
 		E4937BE818D2BF7D00E8F661 /* NBInfoInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BE718D2BF7D00E8F661 /* NBInfoInputTableViewCell.m */; };
 		E4937BE918D2BF7D00E8F661 /* NBInfoInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4937BE718D2BF7D00E8F661 /* NBInfoInputTableViewCell.m */; };
-		E496BDD918D4B29A00F815CE /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E496BDD818D4B29A00F815CE /* Book.m */; };
-		E496BDDA18D4B29A00F815CE /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E496BDD818D4B29A00F815CE /* Book.m */; };
 		E4C9FD9418D343AB00F3FC5B /* NBDeadlineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C9FD9318D343AB00F3FC5B /* NBDeadlineTableViewCell.m */; };
 		E4C9FD9718D36B9F00F3FC5B /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C9FD9618D36B9F00F3FC5B /* Common.m */; };
 		E4C9FD9818D36B9F00F3FC5B /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C9FD9618D36B9F00F3FC5B /* Common.m */; };
@@ -55,6 +53,20 @@
 		E4CC8A4F18D4674400CA5A92 /* finish.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CC8A4818D4674400CA5A92 /* finish.png */; };
 		E4CC8A5018D4674400CA5A92 /* Trash.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CC8A4918D4674400CA5A92 /* Trash.png */; };
 		E4CC8A5118D4674400CA5A92 /* Trash.png in Resources */ = {isa = PBXBuildFile; fileRef = E4CC8A4918D4674400CA5A92 /* Trash.png */; };
+		E4D680E218D5FA4B00BD5469 /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D680E118D5FA4B00BD5469 /* book.png */; };
+		E4D680E318D5FA4B00BD5469 /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D680E118D5FA4B00BD5469 /* book.png */; };
+		E4D680EA18D5FC5E00BD5469 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D680E518D5FC5E00BD5469 /* folder.png */; };
+		E4D680EB18D5FC5E00BD5469 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D680E518D5FC5E00BD5469 /* folder.png */; };
+		E4D680EC18D5FC5E00BD5469 /* look.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D680E618D5FC5E00BD5469 /* look.png */; };
+		E4D680ED18D5FC5E00BD5469 /* look.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D680E618D5FC5E00BD5469 /* look.png */; };
+		E4D680EE18D5FC5E00BD5469 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D680E718D5FC5E00BD5469 /* star.png */; };
+		E4D680EF18D5FC5E00BD5469 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D680E718D5FC5E00BD5469 /* star.png */; };
+		E4D680F618D6008A00BD5469 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D680F518D6008A00BD5469 /* Book.m */; };
+		E4D680F718D6008A00BD5469 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D680F518D6008A00BD5469 /* Book.m */; };
+		E4D680FE18D6037A00BD5469 /* UIImage+Text.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D680FD18D6037A00BD5469 /* UIImage+Text.m */; };
+		E4D680FF18D6037A00BD5469 /* UIImage+Text.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D680FD18D6037A00BD5469 /* UIImage+Text.m */; };
+		E4D6810118D6063D00BD5469 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D6810018D6063D00BD5469 /* calendar.png */; };
+		E4D6810218D6063D00BD5469 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D6810018D6063D00BD5469 /* calendar.png */; };
 		E4DDB66918D307F0000CD085 /* CWAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DDB66818D307F0000CD085 /* CWAlertView.m */; };
 		E4DDB66A18D307F0000CD085 /* CWAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DDB66818D307F0000CD085 /* CWAlertView.m */; };
 		E4DF16C118D54A8200442206 /* liked.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DF16BF18D54A8200442206 /* liked.png */; };
@@ -112,8 +124,6 @@
 		E4937BE318D2B2F100E8F661 /* NewBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewBookViewController.m; path = "Book List/Controllers/NewBookViewController.m"; sourceTree = "<group>"; };
 		E4937BE618D2BF7D00E8F661 /* NBInfoInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBInfoInputTableViewCell.h; path = "Book List/Views/NBInfoInputTableViewCell.h"; sourceTree = "<group>"; };
 		E4937BE718D2BF7D00E8F661 /* NBInfoInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBInfoInputTableViewCell.m; path = "Book List/Views/NBInfoInputTableViewCell.m"; sourceTree = "<group>"; };
-		E496BDD718D4B29A00F815CE /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Book.h; path = Models/Book.h; sourceTree = "<group>"; };
-		E496BDD818D4B29A00F815CE /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Book.m; path = Models/Book.m; sourceTree = "<group>"; };
 		E4C9FD9218D343AB00F3FC5B /* NBDeadlineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBDeadlineTableViewCell.h; path = "Book List/Views/NBDeadlineTableViewCell.h"; sourceTree = "<group>"; };
 		E4C9FD9318D343AB00F3FC5B /* NBDeadlineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBDeadlineTableViewCell.m; path = "Book List/Views/NBDeadlineTableViewCell.m"; sourceTree = "<group>"; };
 		E4C9FD9518D36B9F00F3FC5B /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = Models/Common.h; sourceTree = "<group>"; };
@@ -124,6 +134,15 @@
 		E4CC8A4718D4674400CA5A92 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = Resources/like.png; sourceTree = "<group>"; };
 		E4CC8A4818D4674400CA5A92 /* finish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = finish.png; path = Resources/finish.png; sourceTree = "<group>"; };
 		E4CC8A4918D4674400CA5A92 /* Trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Trash.png; path = Resources/Trash.png; sourceTree = "<group>"; };
+		E4D680E118D5FA4B00BD5469 /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = book.png; path = Resources/book.png; sourceTree = "<group>"; };
+		E4D680E518D5FC5E00BD5469 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = folder.png; path = Resources/folder.png; sourceTree = "<group>"; };
+		E4D680E618D5FC5E00BD5469 /* look.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = look.png; path = Resources/look.png; sourceTree = "<group>"; };
+		E4D680E718D5FC5E00BD5469 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = Resources/star.png; sourceTree = "<group>"; };
+		E4D680F418D6008A00BD5469 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Book.h; path = Models/Book.h; sourceTree = "<group>"; };
+		E4D680F518D6008A00BD5469 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Book.m; path = Models/Book.m; sourceTree = "<group>"; };
+		E4D680FC18D6037A00BD5469 /* UIImage+Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Text.h"; path = "Models/UIImage+Text.h"; sourceTree = "<group>"; };
+		E4D680FD18D6037A00BD5469 /* UIImage+Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Text.m"; path = "Models/UIImage+Text.m"; sourceTree = "<group>"; };
+		E4D6810018D6063D00BD5469 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = Resources/calendar.png; sourceTree = "<group>"; };
 		E4DDB66718D307F0000CD085 /* CWAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWAlertView.h; path = "Book List/Views/CWAlertView.h"; sourceTree = "<group>"; };
 		E4DDB66818D307F0000CD085 /* CWAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWAlertView.m; path = "Book List/Views/CWAlertView.m"; sourceTree = "<group>"; };
 		E4DF16BF18D54A8200442206 /* liked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = liked.png; path = Resources/liked.png; sourceTree = "<group>"; };
@@ -271,11 +290,13 @@
 		E4937BD618D2984C00E8F661 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E4D680FC18D6037A00BD5469 /* UIImage+Text.h */,
+				E4D680FD18D6037A00BD5469 /* UIImage+Text.m */,
 				E4C9FD9518D36B9F00F3FC5B /* Common.h */,
 				E4C9FD9618D36B9F00F3FC5B /* Common.m */,
 				E4937BD718D2988000E8F661 /* BLCoreData.xcdatamodeld */,
-				E496BDD718D4B29A00F815CE /* Book.h */,
-				E496BDD818D4B29A00F815CE /* Book.m */,
+				E4D680F418D6008A00BD5469 /* Book.h */,
+				E4D680F518D6008A00BD5469 /* Book.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -283,6 +304,11 @@
 		E4937BDE18D2A20000E8F661 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4D6810018D6063D00BD5469 /* calendar.png */,
+				E4D680E518D5FC5E00BD5469 /* folder.png */,
+				E4D680E618D5FC5E00BD5469 /* look.png */,
+				E4D680E718D5FC5E00BD5469 /* star.png */,
+				E4D680E118D5FA4B00BD5469 /* book.png */,
 				E4DF16C518D588C500442206 /* settings.png */,
 				E4DF16BF18D54A8200442206 /* liked.png */,
 				E4DF16C018D54A8200442206 /* finished.png */,
@@ -401,8 +427,13 @@
 				E4DF16C118D54A8200442206 /* liked.png in Resources */,
 				E4DF16C318D54A8200442206 /* finished.png in Resources */,
 				E4DF16C618D588C500442206 /* settings.png in Resources */,
+				E4D6810118D6063D00BD5469 /* calendar.png in Resources */,
+				E4D680EC18D5FC5E00BD5469 /* look.png in Resources */,
 				E4CC8A4A18D4674400CA5A92 /* Edit.png in Resources */,
+				E4D680E218D5FA4B00BD5469 /* book.png in Resources */,
+				E4D680EE18D5FC5E00BD5469 /* star.png in Resources */,
 				E423B35418D191ED00D32930 /* InfoPlist.strings in Resources */,
+				E4D680EA18D5FC5E00BD5469 /* folder.png in Resources */,
 				E4937BE018D2A21600E8F661 /* list.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,10 +445,15 @@
 				E4DF16C218D54A8200442206 /* liked.png in Resources */,
 				E4DF16C418D54A8200442206 /* finished.png in Resources */,
 				E4CC8A5118D4674400CA5A92 /* Trash.png in Resources */,
+				E4D680ED18D5FC5E00BD5469 /* look.png in Resources */,
 				E4CC8A4B18D4674400CA5A92 /* Edit.png in Resources */,
+				E4D680EB18D5FC5E00BD5469 /* folder.png in Resources */,
 				E423B37318D191ED00D32930 /* InfoPlist.strings in Resources */,
+				E4D6810218D6063D00BD5469 /* calendar.png in Resources */,
 				E4CC8A4F18D4674400CA5A92 /* finish.png in Resources */,
+				E4D680E318D5FA4B00BD5469 /* book.png in Resources */,
 				E4DF16C718D588C500442206 /* settings.png in Resources */,
+				E4D680EF18D5FC5E00BD5469 /* star.png in Resources */,
 				E4937BE118D2A21600E8F661 /* list.png in Resources */,
 				E4CC8A4D18D4674400CA5A92 /* like.png in Resources */,
 			);
@@ -442,10 +478,11 @@
 				E423B3A918D1FD4800D32930 /* ListTableViewCell.m in Sources */,
 				E4CC8A4318D4612700CA5A92 /* EditorTableViewCell.m in Sources */,
 				E4C9FD9418D343AB00F3FC5B /* NBDeadlineTableViewCell.m in Sources */,
-				E496BDD918D4B29A00F815CE /* Book.m in Sources */,
+				E4D680F618D6008A00BD5469 /* Book.m in Sources */,
 				E4C9FD9718D36B9F00F3FC5B /* Common.m in Sources */,
 				E423B39D18D1DFE400D32930 /* CategoryTableView.m in Sources */,
 				E423B35618D191ED00D32930 /* main.m in Sources */,
+				E4D680FE18D6037A00BD5469 /* UIImage+Text.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,8 +490,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E496BDDA18D4B29A00F815CE /* Book.m in Sources */,
+				E4D680F718D6008A00BD5469 /* Book.m in Sources */,
 				E4C9FD9818D36B9F00F3FC5B /* Common.m in Sources */,
+				E4D680FF18D6037A00BD5469 /* UIImage+Text.m in Sources */,
 				E4937BE918D2BF7D00E8F661 /* NBInfoInputTableViewCell.m in Sources */,
 				E423B38718D196A600D32930 /* ListTableView.m in Sources */,
 				E4CC8A4418D4612700CA5A92 /* EditorTableViewCell.m in Sources */,

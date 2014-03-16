@@ -34,4 +34,6 @@
           favorite:(BOOL)favorite;
 + (NSArray *)loadData:(UIManagedDocument *)document sort:(NSArray *)sorts predicate:(NSPredicate *)predicate;
 + (void)deleteData:(UIManagedDocument *)document object:(Book *)book;
+
++ (void)setExtraCellLineHidden: (UITableView *)tableView;
 @end

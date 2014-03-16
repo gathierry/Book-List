@@ -11,6 +11,7 @@
 #import "ListTableViewCell.h"
 #import "EditorTableViewCell.h"
 #import "Book.h"
+#import "UIImage+Text.h"
 
 @class ListTableView;
 
@@ -30,6 +31,7 @@
 @property (nonatomic, strong) NSArray *booksArray;
 @property (nonatomic, strong) UIManagedDocument *bookDatabase;
 @property (nonatomic, retain) UINavigationBar *navBar;
+@property (nonatomic, strong) NSIndexPath *editorIndexPath;
 
 @property (nonatomic, weak) id<ListTableViewDelegate> delegate;
 

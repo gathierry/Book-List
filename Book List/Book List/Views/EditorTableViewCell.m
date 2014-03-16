@@ -27,7 +27,7 @@
 
 #define BUTTON_WIDTH 25
 #define INTERVAL_WIDTH 44
-#define CELL_HEIGHT 44
+#define CELL_HEIGHT self.frame.size.height
 #define TITLE_HEIGHT 16
 
 - (UIButton *)doneButton

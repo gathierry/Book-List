@@ -11,7 +11,6 @@
 @interface ListTableView()
 
 @property (nonatomic, retain) UITableView *tableView;
-@property (nonatomic, strong) NSIndexPath *editorIndexPath;
 
 @end
 
@@ -88,6 +87,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [Common setExtraCellLineHidden:self.tableView];
         [self addSubview:self.tableView];
         [self addSubview:self.navBar];
         [self addGestureRecognizer:self.panGestureRecognizer];
@@ -201,10 +201,21 @@
     listTableViewCell.detailTextLabel.text = book.remark;
     listTableViewCell.textLabel.textColor = [book.finish boolValue] ? [UIColor blueColor] : [UIColor blackColor];
     listTableViewCell.backgroundColor = [book.favorite boolValue] ? [UIColor orangeColor] : [UIColor whiteColor];
+    NSTimeInterval interval = [book.deadline timeIntervalSinceNow];
+    int i = (int)(interval/86400) + 1;
+    listTableViewCell.imageView.image = [[UIImage imageNamed:@"calendar.png"] drawText:[NSString stringWithFormat:@"%d", i] atPoint:CGPointMake(10, 15)];
     return listTableViewCell;
 }
 
 #pragma mark - Delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([indexPath compare:self.editorIndexPath] == NSOrderedSame) {
+        return 44;
+    }
+    return 60;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     

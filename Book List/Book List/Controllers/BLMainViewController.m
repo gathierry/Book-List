@@ -249,6 +249,7 @@
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     ((UINavigationItem *)[self.listTableView.navBar.items lastObject]).title = cell.textLabel.text;
+    self.listTableView.editorIndexPath = NULL;
     self.categorySelectedRow = indexPath.row;
     [self useDocument];
     
