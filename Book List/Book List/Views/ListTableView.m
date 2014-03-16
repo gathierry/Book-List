@@ -104,8 +104,8 @@
 
 - (void)displayEditingRowAtIndex:(NSIndexPath *)indexPath
 {
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     NSIndexPath *nextIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section];
+
     [self.tableView beginUpdates];
     if (self.editorIndexPath == NULL) {
         //no editor open one
@@ -115,8 +115,9 @@
     else {
         if ([self.editorIndexPath compare:nextIndexPath] == NSOrderedSame) {
             //need to close the editor
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:nextIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             self.editorIndexPath = NULL;
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:nextIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            
         }
         else {
             //need to close one editor and open another
@@ -138,7 +139,7 @@
 {
     Book *book = [self.booksArray objectAtIndex:self.editorIndexPath.row - 1];
     [Common updateData:self.bookDatabase book:book title:book.title remark:book.remark deadline:book.deadline finish:![book.finish boolValue] favorite:[book.favorite boolValue]];
-    [self displayEditingRowAtIndex:[NSIndexPath indexPathForRow:self.editorIndexPath.row - 1 inSection:self.editorIndexPath.section]];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.editorIndexPath.row - 1 inSection:self.editorIndexPath.section], self.editorIndexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)deleteButtonPressed
@@ -159,7 +160,7 @@
 {
     Book *book = [self.booksArray objectAtIndex:self.editorIndexPath.row - 1];
     [Common updateData:self.bookDatabase book:book title:book.title remark:book.remark deadline:book.deadline finish:[book.finish boolValue] favorite:![book.favorite boolValue]];
-    [self displayEditingRowAtIndex:[NSIndexPath indexPathForRow:self.editorIndexPath.row - 1 inSection:self.editorIndexPath.section]];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.editorIndexPath.row - 1 inSection:self.editorIndexPath.section], self.editorIndexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark - Data Source

@@ -272,7 +272,7 @@
 
 - (void)presentSettingsViewController
 {
-    [self.categoryTableView.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+    //present settings controller
 }
 
 @end
