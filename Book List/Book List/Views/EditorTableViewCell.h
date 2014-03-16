@@ -15,4 +15,7 @@
 @property (nonatomic, retain) UIButton *editButton;
 @property (nonatomic, retain) UIButton *favoriteButton;
 
+@property (nonatomic) BOOL finished;
+@property (nonatomic) BOOL liked;
+
 @end

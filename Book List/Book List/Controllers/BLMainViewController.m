@@ -58,7 +58,7 @@
 #pragma mark - Document Operation
 - (void)loadDataBase:(UIManagedDocument *)document
 {
-    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES selector:@selector(localizedStandardCompare:)];
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"identity" ascending:YES];
     self.listTableView.booksArray = [Common loadData:document sort:sort predicate:nil];
     [self.listTableView reloadData];
 }

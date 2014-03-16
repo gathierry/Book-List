@@ -105,6 +105,7 @@
 
 - (void)displayEditingRowAtIndex:(NSIndexPath *)indexPath
 {
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     NSIndexPath *nextIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section];
     [self.tableView beginUpdates];
     if (self.editorIndexPath == NULL) {
@@ -176,8 +177,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Book *book;
     if (self.editorIndexPath && [indexPath compare:self.editorIndexPath] == NSOrderedSame) {
+        book = [self.booksArray objectAtIndex:indexPath.row - 1];
         EditorTableViewCell *editorTableViewCell = [EditorTableViewCell cellForTableView:tableView];
+        editorTableViewCell.liked = [book.favorite boolValue];
+        editorTableViewCell.finished = [book.finish boolValue];
         [editorTableViewCell.doneButton addTarget:self action:@selector(doneButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [editorTableViewCell.deleteButton addTarget:self action:@selector(deleteButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [editorTableViewCell.editButton addTarget:self action:@selector(editButtonPressed) forControlEvents:UIControlEventTouchUpInside];
@@ -185,7 +190,6 @@
         return editorTableViewCell;
     }
     ListTableViewCell *listTableViewCell = [ListTableViewCell cellForTableView:tableView];
-    Book *book;
     if (self.editorIndexPath &&[indexPath compare:self.editorIndexPath] == NSOrderedDescending) {
         book = [self.booksArray objectAtIndex:indexPath.row - 1];
     }
@@ -196,9 +200,8 @@
     NSLog(@"%d-%d-%d", [book.favorite boolValue], [book.finish boolValue], [book.identity intValue]);
     listTableViewCell.textLabel.text = book.title;
     listTableViewCell.detailTextLabel.text = book.remark;
-    if ([book.favorite boolValue]) {
-        listTableViewCell.textLabel.textColor = [UIColor purpleColor];
-    }
+    listTableViewCell.textLabel.textColor = [book.finish boolValue] ? [UIColor blueColor] : [UIColor blackColor];
+    listTableViewCell.backgroundColor = [book.favorite boolValue] ? [UIColor orangeColor] : [UIColor whiteColor];
     return listTableViewCell;
 }
 

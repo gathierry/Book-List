@@ -8,12 +8,21 @@
 
 #import "EditorTableViewCell.h"
 
+@interface EditorTableViewCell()
+{
+    UILabel *_doneLabel;
+    UILabel *_favoriteLabel;
+}
+@end
+
 @implementation EditorTableViewCell
 
 @synthesize doneButton = _doneButton;
 @synthesize deleteButton = _deleteButton;
 @synthesize editButton = _editButton;
 @synthesize favoriteButton = _favoriteButton;
+@synthesize finished = _finished;
+@synthesize liked = _liked;
 
 
 #define BUTTON_WIDTH 25
@@ -24,7 +33,6 @@
     if (!_doneButton) {
         _doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
         [_doneButton setTintColor:[UIColor blackColor]];
-        [_doneButton setImage:[UIImage imageNamed:@"Tick.png"] forState:UIControlStateNormal];
         [_doneButton setFrame:CGRectMake(INTERVAL_WIDTH, 0, BUTTON_WIDTH, BUTTON_WIDTH)];
     }
     return _doneButton;
@@ -57,12 +65,40 @@
     if (!_favoriteButton) {
         _favoriteButton = [UIButton buttonWithType:UIButtonTypeSystem];
         [_favoriteButton setTintColor:[UIColor blackColor]];
-        [_favoriteButton setImage:[UIImage imageNamed:@"favorite.png"] forState:UIControlStateNormal];
         [_favoriteButton setFrame:CGRectMake(INTERVAL_WIDTH * 4 + BUTTON_WIDTH * 3, 0, BUTTON_WIDTH, BUTTON_WIDTH)];
     }
     return _favoriteButton;
 }
 
+- (void)setLiked:(BOOL)liked
+{
+    if (_liked != liked) {
+        _liked = liked;
+    }
+    if (_liked) {
+        [_favoriteButton setImage:[UIImage imageNamed:@"liked.png"] forState:UIControlStateNormal];
+        _favoriteLabel.text = @"喜欢";
+    }
+    else {
+        [_favoriteButton setImage:[UIImage imageNamed:@"like.png"] forState:UIControlStateNormal];
+        _favoriteLabel.text = @"喜欢";
+    }
+}
+
+- (void)setFinished:(BOOL)finished
+{
+    if (_finished != finished) {
+        _finished = finished;
+    }
+    if (_finished) {
+        [_doneButton setImage:[UIImage imageNamed:@"finished.png"] forState:UIControlStateNormal];
+        _doneLabel.text = @"未读";
+    }
+    else {
+        [_doneButton setImage:[UIImage imageNamed:@"finish.png"] forState:UIControlStateNormal];
+        _doneLabel.text = @"读完";
+    }
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -75,11 +111,10 @@
         [self addSubview:self.editButton];
         [self addSubview:self.favoriteButton];
         
-        UILabel *doneLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.doneButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, 16)];
-        doneLabel.text = @"读完";
-        doneLabel.textAlignment = NSTextAlignmentCenter;
-        doneLabel.font = [UIFont systemFontOfSize:10];
-        [self addSubview:doneLabel];
+        _doneLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.doneButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, 16)];
+        _doneLabel.textAlignment = NSTextAlignmentCenter;
+        _doneLabel.font = [UIFont systemFontOfSize:10];
+        [self addSubview:_doneLabel];
         
         UILabel *deleteLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.deleteButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, 16)];
         deleteLabel.text = @"删除";
@@ -93,11 +128,10 @@
         editLabel.font = [UIFont systemFontOfSize:10];
         [self addSubview:editLabel];
         
-        UILabel *favoriteLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.favoriteButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, 16)];
-        favoriteLabel.text = @"喜欢";
-        favoriteLabel.textAlignment = NSTextAlignmentCenter;
-        favoriteLabel.font = [UIFont systemFontOfSize:10];
-        [self addSubview:favoriteLabel];
+        _favoriteLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.favoriteButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, 16)];
+        _favoriteLabel.textAlignment = NSTextAlignmentCenter;
+        _favoriteLabel.font = [UIFont systemFontOfSize:10];
+        [self addSubview:_favoriteLabel];
     }
     return self;
 }
