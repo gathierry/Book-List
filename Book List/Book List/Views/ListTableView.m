@@ -18,7 +18,7 @@
 @implementation ListTableView
 
 @synthesize tableView = _tableView;
-@synthesize inactive = _inactive;
+@synthesize active = _active;
 @synthesize panGestureRecognizer = _panGestureRecognizer;
 @synthesize navBar = _navBar;
 @synthesize leftBarButtonItem = _leftBarButtonItem;
@@ -76,12 +76,12 @@
     return _panGestureRecognizer;
 }
 
-- (void)setInactive:(BOOL)inactive
+- (void)setActive:(BOOL)active
 {
-    if (_inactive != inactive) {
-        _inactive = inactive;
+    if (_active != active) {
+        _active = active;
     }
-    self.tableView.userInteractionEnabled = !_inactive;
+    self.tableView.userInteractionEnabled = active;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -196,7 +196,6 @@
         book = [self.booksArray objectAtIndex:indexPath.row];
     }
     
-    NSLog(@"like:%d-fini:%d-id:%d", [book.favorite boolValue], [book.finish boolValue], [book.identity intValue]);
     listTableViewCell.textLabel.text = book.title;
     listTableViewCell.detailTextLabel.text = book.remark;
     listTableViewCell.textLabel.textColor = [book.finish boolValue] ? [UIColor blueColor] : [UIColor blackColor];

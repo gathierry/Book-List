@@ -23,7 +23,7 @@
 
 @interface ListTableView : UIView <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic) BOOL inactive;
+@property (nonatomic) BOOL active;
 @property (nonatomic, retain) UIPanGestureRecognizer *panGestureRecognizer;
 @property (nonatomic, retain) UIBarButtonItem *leftBarButtonItem;
 @property (nonatomic, retain) UIBarButtonItem *rightBarButtonItem;

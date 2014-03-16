@@ -61,6 +61,8 @@
 		E4DF16C218D54A8200442206 /* liked.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DF16BF18D54A8200442206 /* liked.png */; };
 		E4DF16C318D54A8200442206 /* finished.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DF16C018D54A8200442206 /* finished.png */; };
 		E4DF16C418D54A8200442206 /* finished.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DF16C018D54A8200442206 /* finished.png */; };
+		E4DF16C618D588C500442206 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DF16C518D588C500442206 /* settings.png */; };
+		E4DF16C718D588C500442206 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DF16C518D588C500442206 /* settings.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +128,7 @@
 		E4DDB66818D307F0000CD085 /* CWAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CWAlertView.m; path = "Book List/Views/CWAlertView.m"; sourceTree = "<group>"; };
 		E4DF16BF18D54A8200442206 /* liked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = liked.png; path = Resources/liked.png; sourceTree = "<group>"; };
 		E4DF16C018D54A8200442206 /* finished.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = finished.png; path = Resources/finished.png; sourceTree = "<group>"; };
+		E4DF16C518D588C500442206 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = Resources/settings.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +283,7 @@
 		E4937BDE18D2A20000E8F661 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4DF16C518D588C500442206 /* settings.png */,
 				E4DF16BF18D54A8200442206 /* liked.png */,
 				E4DF16C018D54A8200442206 /* finished.png */,
 				E4CC8A4618D4674400CA5A92 /* Edit.png */,
@@ -393,6 +397,7 @@
 				E4CC8A4C18D4674400CA5A92 /* like.png in Resources */,
 				E4DF16C118D54A8200442206 /* liked.png in Resources */,
 				E4DF16C318D54A8200442206 /* finished.png in Resources */,
+				E4DF16C618D588C500442206 /* settings.png in Resources */,
 				E4CC8A4A18D4674400CA5A92 /* Edit.png in Resources */,
 				E423B35418D191ED00D32930 /* InfoPlist.strings in Resources */,
 				E4937BE018D2A21600E8F661 /* list.png in Resources */,
@@ -409,6 +414,7 @@
 				E4CC8A4B18D4674400CA5A92 /* Edit.png in Resources */,
 				E423B37318D191ED00D32930 /* InfoPlist.strings in Resources */,
 				E4CC8A4F18D4674400CA5A92 /* finish.png in Resources */,
+				E4DF16C718D588C500442206 /* settings.png in Resources */,
 				E4937BE118D2A21600E8F661 /* list.png in Resources */,
 				E4CC8A4D18D4674400CA5A92 /* like.png in Resources */,
 			);

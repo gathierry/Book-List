@@ -19,6 +19,7 @@
 @synthesize tableView = _tableView;
 @synthesize navBar = _navBar;
 @synthesize delegate = _delegate;
+@synthesize settingsBarButtonItem = _settingsBarButtonItem;
 
 - (UITableView *)tableView
 {
@@ -35,8 +36,19 @@
     if (!_navBar) {
         _navBar = [[UINavigationBar alloc] initWithFrame:NAV_FRAME];
         _navBar.backgroundColor = [UIColor orangeColor];
+        UINavigationItem *item = [[UINavigationItem alloc] init];
+        item.leftBarButtonItem = self.settingsBarButtonItem;
+        _navBar.items = @[item];
     }
     return _navBar;
+}
+
+- (UIBarButtonItem *)settingsBarButtonItem
+{
+    if (!_settingsBarButtonItem) {
+        _settingsBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStylePlain target:nil action:nil];
+    }
+    return _settingsBarButtonItem;
 }
 
 - (id)initWithFrame:(CGRect)frame 

@@ -31,6 +31,8 @@
 {
     if (!_categoryTableView) {
         _categoryTableView = [[CategoryTableView alloc] initWithFrame:FULL_FRAME];
+        [_categoryTableView.settingsBarButtonItem setTarget:self];
+        [_categoryTableView.settingsBarButtonItem setAction:@selector(presentSettingsViewController)];
         _categoryTableView.delegate = self;
     }
     return _categoryTableView;
@@ -112,18 +114,18 @@
 
 - (void)alterMode
 {
-    if (!self.listTableView.inactive) {
+    if (self.listTableView.active) {
         [UIView animateWithDuration:0.3 animations:^{
             [self moveViewWithX:DISTANCE];
         } completion:^(BOOL finished) {
-            self.listTableView.inactive = YES;
+            self.listTableView.active = NO;
         }];
     }
     else {
         [UIView animateWithDuration:0.3 animations:^{
             [self moveViewWithX:-DISTANCE];
         } completion:^(BOOL finished) {
-            self.listTableView.inactive = NO;
+            self.listTableView.active = YES;
         }];
     }
 }
@@ -131,7 +133,7 @@
 - (void)moveViewWithX:(float)x
 {
     CGRect frame = self.listTableView.frame;
-    if (!self.listTableView.inactive) {
+    if (self.listTableView.active) {
         x = x>DISTANCE?DISTANCE:x;
         x = x<0?0:x;
         frame.origin.x = x;
@@ -161,35 +163,35 @@
         }
         else
         {
-            if (!self.listTableView.inactive) {
+            if (self.listTableView.active) {
                 [UIView animateWithDuration:0.3 animations:^{
                     [self moveViewWithX:0];
                 } completion:^(BOOL finished) {
-                    self.listTableView.inactive = NO;
+                    self.listTableView.active = YES;
                 }];
             }
             else {
                 [UIView animateWithDuration:0.3 animations:^{
                     [self moveViewWithX:0];
                 } completion:^(BOOL finished) {
-                    self.listTableView.inactive = YES;
+                    self.listTableView.active = NO;
                 }];
             }
         }
         return;
     }else if (recoginzer.state == UIGestureRecognizerStateCancelled){
-        if (!self.listTableView.inactive) {
+        if (self.listTableView.active) {
             [UIView animateWithDuration:0.3 animations:^{
                 [self moveViewWithX:0];
             } completion:^(BOOL finished) {
-                self.listTableView.inactive = NO;
+                self.listTableView.active = YES;
             }];
         }
         else {
             [UIView animateWithDuration:0.3 animations:^{
                 [self moveViewWithX:0];
             } completion:^(BOOL finished) {
-                self.listTableView.inactive = YES;
+                self.listTableView.active = NO;
             }];
         }
         return;
@@ -222,8 +224,8 @@
     }
     self.listTableView.bookDatabase = self.bookDatabase;
     [self.categoryTableView.tableView reloadData];
+    [self.categoryTableView.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:_categorySelectedRow inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
     [self.categoryTableView tableView:self.categoryTableView.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:_categorySelectedRow inSection:0]];
-    [self alterMode];
 }
 
 - (void)didReceiveMemoryWarning
@@ -247,11 +249,10 @@
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     ((UINavigationItem *)[self.listTableView.navBar.items lastObject]).title = cell.textLabel.text;
-    //reload data
     self.categorySelectedRow = indexPath.row;
     [self useDocument];
     
-    [self alterMode];
+    if (!self.listTableView.active) [self alterMode];
 }
 
 #pragma mark - New View Controller
@@ -267,6 +268,11 @@
     nbvc.bookID  = bookID;
     nbvc.bookDatabase = self.bookDatabase;
     [self presentViewController:nbvc animated:YES completion:nil];
+}
+
+- (void)presentSettingsViewController
+{
+    [self.categoryTableView.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
 }
 
 @end
