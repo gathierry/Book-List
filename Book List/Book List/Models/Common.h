@@ -13,6 +13,7 @@
 #define DDL_ATTRIBUTION_NAME @"deadline"
 #define FINISH_ATTRIBUTION_NAME @"finish"
 #define FAVORITE_ATTRIBUTION_NAME @"favorite"
+#define MAIN_COLOR [UIColor colorWithRed:233.0/255.0 green:102.0/255.0 blue:28.0/255.0 alpha:1.0]
 
 @interface Common : NSObject
 

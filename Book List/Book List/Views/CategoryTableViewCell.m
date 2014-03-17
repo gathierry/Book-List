@@ -14,7 +14,10 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        self.backgroundColor = [UIColor clearColor];
+        UIView *view = [[UIView alloc] init];
+        view.backgroundColor = [UIColor whiteColor];
+        self.selectedBackgroundView = view;
     }
     return self;
 }

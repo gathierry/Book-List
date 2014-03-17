@@ -48,6 +48,7 @@
         [_listTableView.leftBarButtonItem setAction:@selector(alterMode)];
         [_listTableView.rightBarButtonItem setTarget:self];
         [_listTableView.rightBarButtonItem setAction:@selector(addNewBook)];
+        [_listTableView.emptyView.addButton addTarget:self action:@selector(addNewBook) forControlEvents:UIControlEventTouchUpInside];
     }
     return _listTableView;
 }
@@ -58,6 +59,14 @@
     if (bookDatabase != _bookDatabase) {
         _bookDatabase =bookDatabase;
     }
+}
+
+- (void)setCategorySelectedRow:(StantardRows)categorySelectedRow
+{
+    if (_categorySelectedRow != categorySelectedRow) {
+        _categorySelectedRow = categorySelectedRow;
+    }
+    self.listTableView.categorySelected = _categorySelectedRow;
 }
 
 #pragma mark - Document Operation
@@ -250,7 +259,7 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     ((UINavigationItem *)[self.listTableView.navBar.items lastObject]).title = cell.textLabel.text;
     self.listTableView.editorIndexPath = NULL;
-    self.categorySelectedRow = indexPath.row;
+    self.categorySelectedRow = (StantardRows)indexPath.row;
     [self useDocument];
     
     if (!self.listTableView.active) [self alterMode];

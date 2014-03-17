@@ -21,12 +21,17 @@
 @synthesize delegate = _delegate;
 @synthesize settingsBarButtonItem = _settingsBarButtonItem;
 
+#define BACKGROUND_COLOR [UIColor colorWithWhite:0.95 alpha:1.0]
+
 - (UITableView *)tableView
 {
     if(!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:VIEW_FRAME];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.backgroundColor = BACKGROUND_COLOR;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _tableView.separatorColor = [UIColor colorWithWhite:0.3 alpha:1.0];
     }
     return _tableView;
 }
@@ -35,7 +40,7 @@
 {
     if (!_navBar) {
         _navBar = [[UINavigationBar alloc] initWithFrame:NAV_FRAME];
-        _navBar.backgroundColor = [UIColor orangeColor];
+        _navBar.backgroundColor = BACKGROUND_COLOR;
         UINavigationItem *item = [[UINavigationItem alloc] init];
         item.leftBarButtonItem = self.settingsBarButtonItem;
         _navBar.items = @[item];

@@ -62,6 +62,12 @@
 		E4A223BC18D69EB700D7D72B /* launchImage-640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A223B718D69EB700D7D72B /* launchImage-640x960.png */; };
 		E4A223BD18D69EB700D7D72B /* launchImage-640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A223B818D69EB700D7D72B /* launchImage-640x1136.png */; };
 		E4A223BE18D69EB700D7D72B /* launchImage-640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A223B818D69EB700D7D72B /* launchImage-640x1136.png */; };
+		E4B1515218D6CD2E00F0B05D /* TableViewBackgroundColor.png in Resources */ = {isa = PBXBuildFile; fileRef = E4B1515118D6CD2E00F0B05D /* TableViewBackgroundColor.png */; };
+		E4B1515318D6CD2E00F0B05D /* TableViewBackgroundColor.png in Resources */ = {isa = PBXBuildFile; fileRef = E4B1515118D6CD2E00F0B05D /* TableViewBackgroundColor.png */; };
+		E4B1515518D6D4BA00F0B05D /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = E4B1515418D6D4BA00F0B05D /* check.png */; };
+		E4B1515618D6D4BA00F0B05D /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = E4B1515418D6D4BA00F0B05D /* check.png */; };
+		E4B1515918D6D78000F0B05D /* EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B1515818D6D78000F0B05D /* EmptyView.m */; };
+		E4B1515A18D6D78000F0B05D /* EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B1515818D6D78000F0B05D /* EmptyView.m */; };
 		E4C9FD9418D343AB00F3FC5B /* NBDeadlineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C9FD9318D343AB00F3FC5B /* NBDeadlineTableViewCell.m */; };
 		E4C9FD9718D36B9F00F3FC5B /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C9FD9618D36B9F00F3FC5B /* Common.m */; };
 		E4C9FD9818D36B9F00F3FC5B /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C9FD9618D36B9F00F3FC5B /* Common.m */; };
@@ -157,6 +163,10 @@
 		E4A223B618D69EB700D7D72B /* launchImage-320x480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launchImage-320x480.png"; path = "Launch Images/launchImage-320x480.png"; sourceTree = "<group>"; };
 		E4A223B718D69EB700D7D72B /* launchImage-640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launchImage-640x960.png"; path = "Launch Images/launchImage-640x960.png"; sourceTree = "<group>"; };
 		E4A223B818D69EB700D7D72B /* launchImage-640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launchImage-640x1136.png"; path = "Launch Images/launchImage-640x1136.png"; sourceTree = "<group>"; };
+		E4B1515118D6CD2E00F0B05D /* TableViewBackgroundColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TableViewBackgroundColor.png; path = Resources/TableViewBackgroundColor.png; sourceTree = "<group>"; };
+		E4B1515418D6D4BA00F0B05D /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check.png; path = Resources/check.png; sourceTree = "<group>"; };
+		E4B1515718D6D78000F0B05D /* EmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmptyView.h; path = "Book List/Views/EmptyView.h"; sourceTree = "<group>"; };
+		E4B1515818D6D78000F0B05D /* EmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmptyView.m; path = "Book List/Views/EmptyView.m"; sourceTree = "<group>"; };
 		E4C9FD9218D343AB00F3FC5B /* NBDeadlineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBDeadlineTableViewCell.h; path = "Book List/Views/NBDeadlineTableViewCell.h"; sourceTree = "<group>"; };
 		E4C9FD9318D343AB00F3FC5B /* NBDeadlineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBDeadlineTableViewCell.m; path = "Book List/Views/NBDeadlineTableViewCell.m"; sourceTree = "<group>"; };
 		E4C9FD9518D36B9F00F3FC5B /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = Models/Common.h; sourceTree = "<group>"; };
@@ -303,6 +313,8 @@
 		E423B38318D1965800D32930 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E4B1515718D6D78000F0B05D /* EmptyView.h */,
+				E4B1515818D6D78000F0B05D /* EmptyView.m */,
 				E4CC8A4518D4612C00CA5A92 /* TableViewCells */,
 				E4DDB66718D307F0000CD085 /* CWAlertView.h */,
 				E4DDB66818D307F0000CD085 /* CWAlertView.m */,
@@ -339,6 +351,8 @@
 		E4937BDE18D2A20000E8F661 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4B1515418D6D4BA00F0B05D /* check.png */,
+				E4B1515118D6CD2E00F0B05D /* TableViewBackgroundColor.png */,
 				E4D6810018D6063D00BD5469 /* calendar.png */,
 				E4D680E518D5FC5E00BD5469 /* folder.png */,
 				E4D680E618D5FC5E00BD5469 /* look.png */,
@@ -482,6 +496,7 @@
 			files = (
 				E4A223AF18D69B6200D7D72B /* appIcon-120.png in Resources */,
 				E4A223B118D69B6200D7D72B /* appIcon-512.png in Resources */,
+				E4B1515518D6D4BA00F0B05D /* check.png in Resources */,
 				E4A223B318D69B6200D7D72B /* appIcon-1024.png in Resources */,
 				E4CC8A5018D4674400CA5A92 /* Trash.png in Resources */,
 				E4CC8A4E18D4674400CA5A92 /* finish.png in Resources */,
@@ -493,6 +508,7 @@
 				E4DF16C118D54A8200442206 /* liked.png in Resources */,
 				E4A223A918D69B6200D7D72B /* appIcon-58.png in Resources */,
 				E4DF16C318D54A8200442206 /* finished.png in Resources */,
+				E4B1515218D6CD2E00F0B05D /* TableViewBackgroundColor.png in Resources */,
 				E4DF16C618D588C500442206 /* settings.png in Resources */,
 				E4D6810118D6063D00BD5469 /* calendar.png in Resources */,
 				E4D680EC18D5FC5E00BD5469 /* look.png in Resources */,
@@ -513,6 +529,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B1515618D6D4BA00F0B05D /* check.png in Resources */,
 				E4DF16C218D54A8200442206 /* liked.png in Resources */,
 				E4A223AE18D69B6200D7D72B /* appIcon-80.png in Resources */,
 				E4DF16C418D54A8200442206 /* finished.png in Resources */,
@@ -524,6 +541,7 @@
 				E423B37318D191ED00D32930 /* InfoPlist.strings in Resources */,
 				E4D6810218D6063D00BD5469 /* calendar.png in Resources */,
 				E4CC8A4F18D4674400CA5A92 /* finish.png in Resources */,
+				E4B1515318D6CD2E00F0B05D /* TableViewBackgroundColor.png in Resources */,
 				E4A223BA18D69EB700D7D72B /* launchImage-320x480.png in Resources */,
 				E4D680E318D5FA4B00BD5469 /* book.png in Resources */,
 				E4A223AC18D69B6200D7D72B /* appIcon-60.png in Resources */,
@@ -550,6 +568,7 @@
 			files = (
 				E4937BE818D2BF7D00E8F661 /* NBInfoInputTableViewCell.m in Sources */,
 				E4937BE418D2B2F100E8F661 /* NewBookViewController.m in Sources */,
+				E4B1515918D6D78000F0B05D /* EmptyView.m in Sources */,
 				E4DDB66918D307F0000CD085 /* CWAlertView.m in Sources */,
 				E423B38A18D1979200D32930 /* CWSmartTableViewCell.m in Sources */,
 				E4937BD918D2988000E8F661 /* BLCoreData.xcdatamodeld in Sources */,
@@ -586,6 +605,7 @@
 				E423B37518D191ED00D32930 /* Book_ListTests.m in Sources */,
 				E423B39E18D1DFE400D32930 /* CategoryTableView.m in Sources */,
 				E4DDB66A18D307F0000CD085 /* CWAlertView.m in Sources */,
+				E4B1515A18D6D78000F0B05D /* EmptyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,6 +26,8 @@
 @synthesize editorIndexPath = _editorIndexPath;
 @synthesize bookDatabase = _bookDatabase;
 @synthesize delegate = _delegate;
+@synthesize categorySelected = _categorySelected;
+@synthesize emptyView = _emptyView;
 
 #pragma mark - Getters
 
@@ -43,6 +45,7 @@
 {
     if (!_navBar) {
         _navBar = [[UINavigationBar alloc] initWithFrame:NAV_FRAME];
+        [_navBar setTranslucent:NO];
         UINavigationItem *item = [[UINavigationItem alloc] init];
         item.leftBarButtonItem = self.leftBarButtonItem;
         item.rightBarButtonItem = self.rightBarButtonItem;
@@ -75,12 +78,33 @@
     return _panGestureRecognizer;
 }
 
+- (EmptyView *)emptyView
+{
+    if (!_emptyView) {
+        _emptyView = [[EmptyView alloc] initWithFrame:self.tableView.frame];
+    }
+    return _emptyView;
+}
+
 - (void)setActive:(BOOL)active
 {
     if (_active != active) {
         _active = active;
     }
     self.tableView.userInteractionEnabled = active;
+}
+
+- (void)setBooksArray:(NSArray *)booksArray
+{
+    if (_booksArray != booksArray) {
+        _booksArray = booksArray;
+        if (!_booksArray.count && self.categorySelected == stantardSectionRowAll) {
+            [self addSubview:self.emptyView];
+        }
+        else {
+            [self.emptyView removeFromSuperview];
+        }
+    }
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -91,6 +115,11 @@
         [self addSubview:self.tableView];
         [self addSubview:self.navBar];
         [self addGestureRecognizer:self.panGestureRecognizer];
+        self.layer.shadowColor = [UIColor grayColor].CGColor;
+        self.layer.shadowRadius = 2.0f;
+        self.layer.shadowOffset = CGSizeMake(-2, 0);
+        self.layer.masksToBounds = NO;
+        self.layer.shadowOpacity = 1.0;
     }
     return self;
 }
@@ -199,11 +228,10 @@
     
     listTableViewCell.textLabel.text = book.title;
     listTableViewCell.detailTextLabel.text = book.remark;
-    listTableViewCell.textLabel.textColor = [book.finish boolValue] ? [UIColor blueColor] : [UIColor blackColor];
-    listTableViewCell.backgroundColor = [book.favorite boolValue] ? [UIColor orangeColor] : [UIColor whiteColor];
+    listTableViewCell.textLabel.textColor = [book.favorite boolValue] && (_categorySelected == stantardSectionRowAll)? [UIColor colorWithRed:202.0/255.0 green:38.0/255.0 blue:96.0/255.0 alpha:0.5] : [UIColor blackColor];
     NSTimeInterval interval = [book.deadline timeIntervalSinceNow];
     int i = (int)(interval/86400) + 1;
-    listTableViewCell.imageView.image = [[UIImage imageNamed:@"calendar.png"] drawText:[NSString stringWithFormat:@"%d", i] atPoint:CGPointMake(10, 15)];
+    listTableViewCell.imageView.image = [book.finish boolValue] ? [UIImage imageNamed:@"check.png"] : [[UIImage imageNamed:@"calendar.png"] drawText:[NSString stringWithFormat:@"%d", i] atPoint:CGPointMake(10, 15)];
     return listTableViewCell;
 }
 
