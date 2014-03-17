@@ -29,12 +29,12 @@
 #define INTERVAL_WIDTH 44
 #define CELL_HEIGHT self.frame.size.height
 #define TITLE_HEIGHT 16
+//#define BUTTON_TINT_COLOR []
 
 - (UIButton *)doneButton
 {
     if (!_doneButton) {
         _doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [_doneButton setTintColor:[UIColor blackColor]];
         _doneButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, TITLE_HEIGHT, 0);
         [_doneButton setFrame:CGRectMake(INTERVAL_WIDTH, 0, BUTTON_WIDTH, CELL_HEIGHT)];
     }
@@ -45,7 +45,6 @@
 {
     if (!_deleteButton) {
         _deleteButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [_deleteButton setTintColor:[UIColor blackColor]];
         [_deleteButton setImage:[UIImage imageNamed:@"Trash.png"] forState:UIControlStateNormal];
         _deleteButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, TITLE_HEIGHT, 0);
         [_deleteButton setFrame:CGRectMake(INTERVAL_WIDTH * 2 + BUTTON_WIDTH, 0, BUTTON_WIDTH, CELL_HEIGHT)];
@@ -57,7 +56,6 @@
 {
     if (!_editButton) {
         _editButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [_editButton setTintColor:[UIColor blackColor]];
         [_editButton setImage:[UIImage imageNamed:@"Edit.png"] forState:UIControlStateNormal];
         _editButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, TITLE_HEIGHT, 0);
         [_editButton setFrame:CGRectMake(INTERVAL_WIDTH * 3 + BUTTON_WIDTH * 2, 0, BUTTON_WIDTH, CELL_HEIGHT)];
@@ -69,7 +67,6 @@
 {
     if (!_favoriteButton) {
         _favoriteButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [_favoriteButton setTintColor:[UIColor blackColor]];
         _favoriteButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, TITLE_HEIGHT, 0);
         [_favoriteButton setFrame:CGRectMake(INTERVAL_WIDTH * 4 + BUTTON_WIDTH * 3, 0, BUTTON_WIDTH, CELL_HEIGHT)];
     }

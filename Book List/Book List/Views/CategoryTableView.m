@@ -42,7 +42,8 @@
         _navBar = [[UINavigationBar alloc] initWithFrame:NAV_FRAME];
         _navBar.backgroundColor = BACKGROUND_COLOR;
         UINavigationItem *item = [[UINavigationItem alloc] init];
-        item.leftBarButtonItem = self.settingsBarButtonItem;
+        item.title = @"Book List";
+        //item.rightBarButtonItem = self.settingsBarButtonItem;
         _navBar.items = @[item];
     }
     return _navBar;
