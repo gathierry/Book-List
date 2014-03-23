@@ -112,7 +112,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
-        
+        /*
         [self addSubview:self.doneButton];
         [self addSubview:self.deleteButton];
         [self addSubview:self.editButton];
@@ -139,6 +139,12 @@
         _favoriteLabel.textAlignment = NSTextAlignmentCenter;
         _favoriteLabel.font = [UIFont systemFontOfSize:10];
         [self addSubview:_favoriteLabel];
+         */
+        
+        UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:self.frame];
+        [self addSubview:toolBar];
+        UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"list.png"] style:UIBarButtonItemStylePlain target:nil action:nil];
+        toolBar.items = [NSArray arrayWithObject:leftBarButtonItem];
     }
     return self;
 }
