@@ -284,7 +284,9 @@
 
 - (void)presentSettingsViewController
 {
-    //present settings controller
+    BLSettingsViewController *blsvc = [[BLSettingsViewController alloc] init];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:blsvc];
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 @end

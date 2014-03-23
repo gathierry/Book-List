@@ -11,6 +11,7 @@
 #import "CategoryTableView.h"
 #import "ListTableView.h"
 #import "NewBookViewController.h"
+#import "BLSettingsViewController.h"
 
 @interface BLMainViewController : UIViewController <ListTableViewDelegate, CategoryTableViewDelegate>
 

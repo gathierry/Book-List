@@ -233,7 +233,7 @@
     NSTimeInterval interval = [book.deadline timeIntervalSinceNow];
     int i = (int)(interval/86400) + 1;
     UIImage *image = [book.finish boolValue] ? [UIImage imageNamed:@"check.png"] : [[UIImage imageNamed:@"calendar.png"] drawText:[NSString stringWithFormat:@"%d", i] atPoint:CGPointMake(10, 15)];
-    [listTableViewCell.button setImage:image forState:UIControlStateNormal];
+    [listTableViewCell.button setImage:image];
     listTableViewCell.button.tag = [book.identity integerValue];
     return listTableViewCell;
 }

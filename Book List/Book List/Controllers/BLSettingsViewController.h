@@ -10,4 +10,24 @@
 
 @interface BLSettingsViewController : UIViewController
 
+typedef enum {
+    SettingHelp = 0,
+    SettingData,
+    SettingNumSections,
+} SettingSections;
+
+typedef enum {
+    SettingHelpRowCheckVersion = 0,
+    SettingHelpRowFeedBack,
+    SettingHelpRowRate,
+    SettingHelpRowShare,
+    SettingHelpNumRows
+} SettingHelpRows;
+
+typedef enum {
+    SettingDataRowiCloud = 0,
+    SettingDataRowReset,
+    SettingDataNumRows,
+} SettingDataRows;
+
 @end

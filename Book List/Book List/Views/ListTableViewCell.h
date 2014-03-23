@@ -12,6 +12,6 @@
 
 @interface ListTableViewCell : CWSmartTableViewCell
 
-@property (nonatomic, retain) UIButton *button;
+@property (nonatomic, retain) UIBarButtonItem *button;
 
 @end

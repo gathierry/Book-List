@@ -10,17 +10,27 @@
 
 @interface BLSettingsViewController ()
 
+@property (nonatomic, retain) UITableView *tableView;
+
 @end
 
 @implementation BLSettingsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+@synthesize tableView = _tableView;
+
+- (UITableView *)tableView
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:VIEW_FRAME style:UITableViewStyleGrouped];
     }
-    return self;
+    return _tableView;
+}
+
+- (void)loadView
+{
+    [super loadView];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissViewController)];
+    [self.view addSubview:self.tableView];
 }
 
 - (void)viewDidLoad
@@ -35,15 +45,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)dismissViewController
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-*/
 
 @end
