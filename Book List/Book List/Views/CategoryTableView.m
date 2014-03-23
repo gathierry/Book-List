@@ -11,6 +11,7 @@
 @interface CategoryTableView()
 
 @property (nonatomic, retain) UINavigationBar *navBar;
+@property (nonatomic, retain) UIBarButtonItem *settingsBarButtonItem;
 
 @end
 
@@ -20,6 +21,7 @@
 @synthesize navBar = _navBar;
 @synthesize delegate = _delegate;
 @synthesize settingsBarButtonItem = _settingsBarButtonItem;
+@synthesize settingsButton = _settingsButton;
 
 #define BACKGROUND_COLOR [UIColor colorWithWhite:0.95 alpha:1.0]
 
@@ -53,7 +55,11 @@
 - (UIBarButtonItem *)settingsBarButtonItem
 {
     if (!_settingsBarButtonItem) {
-        _settingsBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStylePlain target:nil action:nil];
+        UIButton *bt = [UIButton buttonWithType:UIButtonTypeSystem];
+        [bt setFrame:CGRectMake(0, 0, 30, 30)];
+        [bt setImage:[UIImage imageNamed:@"settings.png"] forState:UIControlStateNormal];
+        self.settingsButton = bt;
+        _settingsBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:bt];
     }
     return _settingsBarButtonItem;
 }
@@ -91,19 +97,19 @@
     if (indexPath.section == filterSection) {
         categoryTableViewCell.textLabel.font = [UIFont systemFontOfSize:15.0];
         if (indexPath.row == filterSectionRowAll) {
-            categoryTableViewCell.imageView.image = [UIImage imageNamed:@"book.png"];
+            categoryTableViewCell.cellID = BOOK_CELL_ID;
             categoryTableViewCell.textLabel.text = @"全部书单";
         }
         else if (indexPath.row == filterSectionRowWishToRead) {
-            categoryTableViewCell.imageView.image = [UIImage imageNamed:@"look.png"];
+            categoryTableViewCell.cellID = LOOK_CELL_ID;
             categoryTableViewCell.textLabel.text = @"想读的书";
         }
         else if (indexPath.row == filterSectionRowFinished) {
-            categoryTableViewCell.imageView.image = [UIImage imageNamed:@"folder.png"];
+            categoryTableViewCell.cellID = FOLDER_CELL_ID;
             categoryTableViewCell.textLabel.text = @"读过的书";
         }
         else if (indexPath.row == filterSectionRowFavorite) {
-            categoryTableViewCell.imageView.image = [UIImage imageNamed:@"star.png"];
+            categoryTableViewCell.cellID = STAR_CELL_ID;
             categoryTableViewCell.textLabel.text = @"我的最爱";
         }
     }
@@ -119,6 +125,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.delegate categoryTableViewDelegate:self tableView:tableView selectIndexPath:indexPath];
+    
 }
 
 @end

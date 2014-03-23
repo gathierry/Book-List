@@ -31,11 +31,8 @@
 {
     if (!_categoryTableView) {
         _categoryTableView = [[CategoryTableView alloc] initWithFrame:FULL_FRAME];
-        [_categoryTableView.settingsBarButtonItem setTarget:self];
-        [_categoryTableView.settingsBarButtonItem setAction:@selector(presentSettingsViewController)];
         _categoryTableView.delegate = self;
-        [_categoryTableView.settingsBarButtonItem setTarget:self];
-        [_categoryTableView.settingsBarButtonItem setAction:@selector(presentSettingsViewController)];
+        [_categoryTableView.settingsButton addTarget:self action:@selector(presentSettingsViewController) forControlEvents:UIControlEventTouchUpInside];
     }
     return _categoryTableView;
 }

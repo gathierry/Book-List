@@ -10,6 +10,13 @@
 
 #define CATEGORY_CELL_HEIGHT 40
 
+#define BOOK_CELL_ID @"book"
+#define LOOK_CELL_ID @"look"
+#define FOLDER_CELL_ID @"folder"
+#define STAR_CELL_ID @"star"
+
 @interface CategoryTableViewCell : CWSmartTableViewCell
+
+@property (nonatomic, strong) NSString *cellID;
 
 @end

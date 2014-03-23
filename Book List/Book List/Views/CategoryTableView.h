@@ -35,7 +35,7 @@ typedef enum {
 } FilterRows;
 
 @property (nonatomic, retain) UITableView *tableView;
-@property (nonatomic, retain) UIBarButtonItem *settingsBarButtonItem;
+@property (nonatomic, retain) UIButton *settingsButton;
 
 @property (nonatomic, weak) id<CategoryTableViewDelegate> delegate;
 
