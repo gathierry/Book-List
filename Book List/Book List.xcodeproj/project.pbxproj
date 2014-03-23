@@ -103,6 +103,8 @@
 		E4DF16C418D54A8200442206 /* finished.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DF16C018D54A8200442206 /* finished.png */; };
 		E4DF16C618D588C500442206 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DF16C518D588C500442206 /* settings.png */; };
 		E4DF16C718D588C500442206 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DF16C518D588C500442206 /* settings.png */; };
+		E4EE972A18DEC5D3008EB26D /* transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = E4EE972918DEC5D3008EB26D /* transparent.png */; };
+		E4EE972B18DEC5D3008EB26D /* transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = E4EE972918DEC5D3008EB26D /* transparent.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +193,7 @@
 		E4DF16BF18D54A8200442206 /* liked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = liked.png; path = Resources/liked.png; sourceTree = "<group>"; };
 		E4DF16C018D54A8200442206 /* finished.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = finished.png; path = Resources/finished.png; sourceTree = "<group>"; };
 		E4DF16C518D588C500442206 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = Resources/settings.png; sourceTree = "<group>"; };
+		E4EE972918DEC5D3008EB26D /* transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = transparent.png; path = Resources/transparent.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +354,7 @@
 		E4937BDE18D2A20000E8F661 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4EE972918DEC5D3008EB26D /* transparent.png */,
 				E4B1515418D6D4BA00F0B05D /* check.png */,
 				E4B1515118D6CD2E00F0B05D /* TableViewBackgroundColor.png */,
 				E4D6810018D6063D00BD5469 /* calendar.png */,
@@ -497,6 +501,7 @@
 				E4A223AF18D69B6200D7D72B /* appIcon-120.png in Resources */,
 				E4A223B118D69B6200D7D72B /* appIcon-512.png in Resources */,
 				E4B1515518D6D4BA00F0B05D /* check.png in Resources */,
+				E4EE972A18DEC5D3008EB26D /* transparent.png in Resources */,
 				E4A223B318D69B6200D7D72B /* appIcon-1024.png in Resources */,
 				E4CC8A5018D4674400CA5A92 /* Trash.png in Resources */,
 				E4CC8A4E18D4674400CA5A92 /* finish.png in Resources */,
@@ -545,6 +550,7 @@
 				E4A223BA18D69EB700D7D72B /* launchImage-320x480.png in Resources */,
 				E4D680E318D5FA4B00BD5469 /* book.png in Resources */,
 				E4A223AC18D69B6200D7D72B /* appIcon-60.png in Resources */,
+				E4EE972B18DEC5D3008EB26D /* transparent.png in Resources */,
 				E4A223B418D69B6200D7D72B /* appIcon-1024.png in Resources */,
 				E4A223B218D69B6200D7D72B /* appIcon-512.png in Resources */,
 				E4DF16C718D588C500442206 /* settings.png in Resources */,
@@ -716,13 +722,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Yiran Mao (JNRD86DB74)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yiran Mao (UWYPMN5622)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yiran Mao (JNRD86DB74)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Book List/Book List-Prefix.pch";
 				INFOPLIST_FILE = "Book List/Book List-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5207A8E6-B287-4F53-8758-55ADECFE4387";
+				PROVISIONING_PROFILE = "B2A953F0-C854-4311-9449-CD4A5AE18585";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

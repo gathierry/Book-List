@@ -8,6 +8,8 @@
 
 #import "CWSmartTableViewCell.h"
 
+#define CATEGORY_CELL_HEIGHT 40
+
 @interface CategoryTableViewCell : CWSmartTableViewCell
 
 @end

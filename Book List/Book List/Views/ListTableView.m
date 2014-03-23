@@ -46,6 +46,7 @@
     if (!_navBar) {
         _navBar = [[UINavigationBar alloc] initWithFrame:NAV_FRAME];
         [_navBar setTranslucent:NO];
+         _navBar.tintColor = MAIN_COLOR;
         UINavigationItem *item = [[UINavigationItem alloc] init];
         item.leftBarButtonItem = self.leftBarButtonItem;
         item.rightBarButtonItem = self.rightBarButtonItem;
@@ -231,7 +232,9 @@
     listTableViewCell.textLabel.textColor = [book.favorite boolValue] && (_categorySelected == stantardSectionRowAll)? [UIColor colorWithRed:202.0/255.0 green:38.0/255.0 blue:96.0/255.0 alpha:0.5] : [UIColor blackColor];
     NSTimeInterval interval = [book.deadline timeIntervalSinceNow];
     int i = (int)(interval/86400) + 1;
-    listTableViewCell.imageView.image = [book.finish boolValue] ? [UIImage imageNamed:@"check.png"] : [[UIImage imageNamed:@"calendar.png"] drawText:[NSString stringWithFormat:@"%d", i] atPoint:CGPointMake(10, 15)];
+    UIImage *image = [book.finish boolValue] ? [UIImage imageNamed:@"check.png"] : [[UIImage imageNamed:@"calendar.png"] drawText:[NSString stringWithFormat:@"%d", i] atPoint:CGPointMake(10, 15)];
+    [listTableViewCell.button setImage:image forState:UIControlStateNormal];
+    listTableViewCell.button.tag = [book.identity integerValue];
     return listTableViewCell;
 }
 
@@ -241,7 +244,7 @@
     if ([indexPath compare:self.editorIndexPath] == NSOrderedSame) {
         return 44;
     }
-    return 60;
+    return LIST_CELL_HEIGHT;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

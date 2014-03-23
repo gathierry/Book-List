@@ -32,6 +32,7 @@
         [self addSubview:label];
         
         self.addButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [self.addButton setTitleColor:MAIN_COLOR forState:UIControlStateNormal];
         [self.addButton setTitle:@"添加第一本书" forState:UIControlStateNormal];
         [self.addButton setFrame:CGRectMake(ORIGIN_X, label.frame.origin.y + label.frame.size.height, WIDTH, 30)];
         [self addSubview:self.addButton];

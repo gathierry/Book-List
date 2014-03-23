@@ -8,6 +8,10 @@
 
 #import "CWSmartTableViewCell.h"
 
+#define LIST_CELL_HEIGHT 60
+
 @interface ListTableViewCell : CWSmartTableViewCell
+
+@property (nonatomic, retain) UIButton *button;
 
 @end
