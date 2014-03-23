@@ -8,6 +8,8 @@
 
 #import "CWSmartTableViewCell.h"
 
+#define EDITOR_CELL_HEIGHT 44
+
 @interface EditorTableViewCell : CWSmartTableViewCell
 
 @property (nonatomic, retain) UIButton *doneButton;

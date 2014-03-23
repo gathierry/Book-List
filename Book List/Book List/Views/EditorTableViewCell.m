@@ -25,10 +25,10 @@
 @synthesize liked = _liked;
 
 
-#define BUTTON_WIDTH 25
-#define INTERVAL_WIDTH 44
+#define BUTTON_WIDTH 30
+#define INTERVAL_WIDTH 40
 #define CELL_HEIGHT self.frame.size.height
-#define TITLE_HEIGHT 16
+#define TITLE_HEIGHT (EDITOR_CELL_HEIGHT - BUTTON_WIDTH)
 //#define BUTTON_TINT_COLOR []
 
 - (UIButton *)doneButton
@@ -112,39 +112,33 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
-        /*
+        
         [self addSubview:self.doneButton];
         [self addSubview:self.deleteButton];
         [self addSubview:self.editButton];
         [self addSubview:self.favoriteButton];
         
-        _doneLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.doneButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, 16)];
+        _doneLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.doneButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, TITLE_HEIGHT)];
         _doneLabel.textAlignment = NSTextAlignmentCenter;
         _doneLabel.font = [UIFont systemFontOfSize:10];
         [self addSubview:_doneLabel];
         
-        UILabel *deleteLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.deleteButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, 16)];
+        UILabel *deleteLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.deleteButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, TITLE_HEIGHT)];
         deleteLabel.text = @"删除";
         deleteLabel.textAlignment = NSTextAlignmentCenter;
         deleteLabel.font = [UIFont systemFontOfSize:10];
         [self addSubview:deleteLabel];
         
-        UILabel *editLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.editButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, 16)];
+        UILabel *editLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.editButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, TITLE_HEIGHT)];
         editLabel.text = @"编辑";
         editLabel.textAlignment = NSTextAlignmentCenter;
         editLabel.font = [UIFont systemFontOfSize:10];
         [self addSubview:editLabel];
         
-        _favoriteLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.favoriteButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, 16)];
+        _favoriteLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.favoriteButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, TITLE_HEIGHT)];
         _favoriteLabel.textAlignment = NSTextAlignmentCenter;
         _favoriteLabel.font = [UIFont systemFontOfSize:10];
         [self addSubview:_favoriteLabel];
-         */
-        
-        UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:self.frame];
-        [self addSubview:toolBar];
-        UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"list.png"] style:UIBarButtonItemStylePlain target:nil action:nil];
-        toolBar.items = [NSArray arrayWithObject:leftBarButtonItem];
     }
     return self;
 }

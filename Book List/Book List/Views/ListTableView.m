@@ -242,7 +242,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([indexPath compare:self.editorIndexPath] == NSOrderedSame) {
-        return 44;
+        return EDITOR_CELL_HEIGHT;
     }
     return LIST_CELL_HEIGHT;
 }
