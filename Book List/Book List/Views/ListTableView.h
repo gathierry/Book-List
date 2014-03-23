@@ -35,7 +35,7 @@
 @property (nonatomic, strong) UIManagedDocument *bookDatabase;
 @property (nonatomic, retain) UINavigationBar *navBar;
 @property (nonatomic, strong) NSIndexPath *editorIndexPath;
-@property (nonatomic) StantardRows categorySelected;
+@property (nonatomic) FilterRows categorySelected;
 @property (nonatomic, retain) EmptyView *emptyView;
 
 @property (nonatomic, weak) id<ListTableViewDelegate> delegate;

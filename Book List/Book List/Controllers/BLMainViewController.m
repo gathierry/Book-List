@@ -13,7 +13,7 @@
 @property (nonatomic, retain) CategoryTableView *categoryTableView;
 @property (nonatomic, retain) ListTableView * listTableView;
 @property (nonatomic) CGPoint startPoint;
-@property (nonatomic) StantardRows categorySelectedRow;
+@property (nonatomic) FilterRows categorySelectedRow;
 
 @end
 
@@ -34,6 +34,8 @@
         [_categoryTableView.settingsBarButtonItem setTarget:self];
         [_categoryTableView.settingsBarButtonItem setAction:@selector(presentSettingsViewController)];
         _categoryTableView.delegate = self;
+        [_categoryTableView.settingsBarButtonItem setTarget:self];
+        [_categoryTableView.settingsBarButtonItem setAction:@selector(presentSettingsViewController)];
     }
     return _categoryTableView;
 }
@@ -61,7 +63,7 @@
     }
 }
 
-- (void)setCategorySelectedRow:(StantardRows)categorySelectedRow
+- (void)setCategorySelectedRow:(FilterRows)categorySelectedRow
 {
     if (_categorySelectedRow != categorySelectedRow) {
         _categorySelectedRow = categorySelectedRow;
@@ -76,18 +78,18 @@
     NSSortDescriptor *sortByDeadline = [NSSortDescriptor sortDescriptorWithKey:DDL_ATTRIBUTION_NAME ascending:YES];
     NSPredicate *predicate = nil;
     NSArray *sortArray = [NSArray array];
-    if (self.categorySelectedRow == stantardSectionRowAll) {
+    if (self.categorySelectedRow == filterSectionRowAll) {
         sortArray = [NSArray arrayWithObjects:sortByDeadline, sortByID, nil];
     }
-    else if (self.categorySelectedRow == stantardSectionRowWishToRead) {
+    else if (self.categorySelectedRow == filterSectionRowWishToRead) {
         predicate = [NSPredicate predicateWithFormat:@"%K == %@", FINISH_ATTRIBUTION_NAME,  [NSNumber numberWithBool:NO]];
         sortArray = [NSArray arrayWithObjects:sortByDeadline, sortByID, nil];
     }
-    else if (self.categorySelectedRow == stantardSectionRowFinished) {
+    else if (self.categorySelectedRow == filterSectionRowFinished) {
         predicate = [NSPredicate predicateWithFormat:@"%K == %@", FINISH_ATTRIBUTION_NAME,  [NSNumber numberWithBool:YES]];
         sortArray = [NSArray arrayWithObjects:sortByID, nil];
     }
-    else if (self.categorySelectedRow == stantardSectionRowFavorite) {
+    else if (self.categorySelectedRow == filterSectionRowFavorite) {
         predicate = [NSPredicate predicateWithFormat:@"%K == %@", FAVORITE_ATTRIBUTION_NAME,  [NSNumber numberWithBool:YES]];
         sortArray = [NSArray arrayWithObjects:sortByID, nil];
     }
@@ -219,7 +221,7 @@
     
     [self.view addSubview:self.categoryTableView];
     [self.view addSubview:self.listTableView];
-    self.categorySelectedRow = stantardSectionRowAll;
+    self.categorySelectedRow = filterSectionRowAll;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -259,7 +261,7 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     ((UINavigationItem *)[self.listTableView.navBar.items lastObject]).title = cell.textLabel.text;
     self.listTableView.editorIndexPath = NULL;
-    self.categorySelectedRow = (StantardRows)indexPath.row;
+    self.categorySelectedRow = (FilterRows)indexPath.row;
     [self useDocument];
     
     if (!self.listTableView.active) [self alterMode];

@@ -21,18 +21,18 @@
 @interface CategoryTableView : UIView <UITableViewDataSource, UITableViewDelegate>
 
 typedef enum {
-    stantardSection = 0,
+    filterSection = 0,
     CategoryNumSections
     
 } CategorySections;
 
 typedef enum {
-    stantardSectionRowAll = 0,
-    stantardSectionRowWishToRead,
-    stantardSectionRowFinished,
-    stantardSectionRowFavorite,
-    stantardSectionNumRows
-} StantardRows;
+    filterSectionRowAll = 0,
+    filterSectionRowWishToRead,
+    filterSectionRowFinished,
+    filterSectionRowFavorite,
+    filterSectionNumRows
+} FilterRows;
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UIBarButtonItem *settingsBarButtonItem;

@@ -41,9 +41,10 @@
     if (!_navBar) {
         _navBar = [[UINavigationBar alloc] initWithFrame:NAV_FRAME];
         _navBar.backgroundColor = BACKGROUND_COLOR;
+        _navBar.tintColor = MAIN_COLOR;
         UINavigationItem *item = [[UINavigationItem alloc] init];
         item.title = @"Book List";
-        //item.rightBarButtonItem = self.settingsBarButtonItem;
+        item.leftBarButtonItem = self.settingsBarButtonItem;
         _navBar.items = @[item];
     }
     return _navBar;
@@ -78,8 +79,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == stantardSection) {
-        return stantardSectionNumRows;
+    if (section == filterSection) {
+        return filterSectionNumRows;
     };
     return 0;
 }
@@ -87,21 +88,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CategoryTableViewCell *categoryTableViewCell = [CategoryTableViewCell cellForTableView:tableView];
-    if (indexPath.section == stantardSection) {
+    if (indexPath.section == filterSection) {
         categoryTableViewCell.textLabel.font = [UIFont systemFontOfSize:15.0];
-        if (indexPath.row == stantardSectionRowAll) {
+        if (indexPath.row == filterSectionRowAll) {
             categoryTableViewCell.imageView.image = [UIImage imageNamed:@"book.png"];
             categoryTableViewCell.textLabel.text = @"全部书单";
         }
-        else if (indexPath.row == stantardSectionRowWishToRead) {
+        else if (indexPath.row == filterSectionRowWishToRead) {
             categoryTableViewCell.imageView.image = [UIImage imageNamed:@"look.png"];
             categoryTableViewCell.textLabel.text = @"想读的书";
         }
-        else if (indexPath.row == stantardSectionRowFinished) {
+        else if (indexPath.row == filterSectionRowFinished) {
             categoryTableViewCell.imageView.image = [UIImage imageNamed:@"folder.png"];
             categoryTableViewCell.textLabel.text = @"读过的书";
         }
-        else if (indexPath.row == stantardSectionRowFavorite) {
+        else if (indexPath.row == filterSectionRowFavorite) {
             categoryTableViewCell.imageView.image = [UIImage imageNamed:@"star.png"];
             categoryTableViewCell.textLabel.text = @"我的最爱";
         }

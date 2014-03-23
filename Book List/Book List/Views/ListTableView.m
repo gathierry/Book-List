@@ -99,7 +99,7 @@
 {
     if (_booksArray != booksArray) {
         _booksArray = booksArray;
-        if (!_booksArray.count && self.categorySelected == stantardSectionRowAll) {
+        if (!_booksArray.count && self.categorySelected == filterSectionRowAll) {
             [self addSubview:self.emptyView];
         }
         else {
@@ -229,7 +229,7 @@
     
     listTableViewCell.textLabel.text = book.title;
     listTableViewCell.detailTextLabel.text = book.remark;
-    listTableViewCell.textLabel.textColor = [book.favorite boolValue] && (_categorySelected == stantardSectionRowAll)? [UIColor colorWithRed:202.0/255.0 green:38.0/255.0 blue:96.0/255.0 alpha:0.5] : [UIColor blackColor];
+    listTableViewCell.textLabel.textColor = [book.favorite boolValue] && (_categorySelected == filterSectionRowAll)? [UIColor colorWithRed:202.0/255.0 green:38.0/255.0 blue:96.0/255.0 alpha:0.5] : [UIColor blackColor];
     NSTimeInterval interval = [book.deadline timeIntervalSinceNow];
     int i = (int)(interval/86400) + 1;
     UIImage *image = [book.finish boolValue] ? [UIImage imageNamed:@"check.png"] : [[UIImage imageNamed:@"calendar.png"] drawText:[NSString stringWithFormat:@"%d", i] atPoint:CGPointMake(10, 15)];
