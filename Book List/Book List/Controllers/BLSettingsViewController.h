@@ -26,7 +26,7 @@ typedef enum {
 
 typedef enum {
     SettingDataRowiCloud = 0,
-    SettingDataRowReset,
+    SettingDataRowCalendar,
     SettingDataNumRows,
 } SettingDataRows;
 
