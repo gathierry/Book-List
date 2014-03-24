@@ -6,6 +6,10 @@
 //  Copyright (c) 2014年 Thierry. All rights reserved.
 //
 
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <netdb.h>
+#import <MessageUI/MessageUI.h>
+
 #import "Common.h"
 
 @implementation Common
@@ -98,6 +102,91 @@
     view.backgroundColor = [UIColor clearColor];
     [tableView setTableFooterView:view];
     [tableView setTableHeaderView:view];
+}
+
++ (BOOL) checkNetWorkIsOk{
+    struct sockaddr_in zeroAddress;
+    bzero(&zeroAddress, sizeof(zeroAddress));
+    zeroAddress.sin_len = sizeof(zeroAddress);
+    zeroAddress.sin_family = AF_INET;
+    
+    SCNetworkReachabilityRef defaultRouteReachability = SCNetworkReachabilityCreateWithAddress(NULL, (struct sockaddr *)&zeroAddress);
+    SCNetworkReachabilityFlags flags;
+    
+    BOOL didRetrieveFlags = SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags);
+    CFRelease(defaultRouteReachability);
+    
+    if (!didRetrieveFlags) {
+        return NO;
+    }
+    
+    BOOL isReachable = flags & kSCNetworkFlagsReachable;
+    BOOL needsConnection = flags & kSCNetworkFlagsConnectionRequired;
+    BOOL nonWifi = flags & kSCNetworkReachabilityFlagsTransientConnection;
+    BOOL moveNet = flags & kSCNetworkReachabilityFlagsIsWWAN;
+    
+    return ((isReachable && !needsConnection) || nonWifi || moveNet) ? YES : NO;
+}
+
++ (NSDictionary *)getAppStoreInfo
+{
+    NSURL *url = [NSURL URLWithString:APP_URL];
+    
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    NSDictionary *results = data?[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:nil]:nil;
+    return results;
+}
+
++ (void)checkVersion
+{
+    if (![Common checkNetWorkIsOk]) {
+        [CWAlertView showWithTitle:@"无网络环境" message:@"请检查网络连接后重试" cancelTitle:@"好的" cancelBlock:nil otherTitle:nil otherBlock:nil];
+        return;
+    }
+    dispatch_queue_t checkVersionQueue = dispatch_queue_create("check version", NULL);
+    dispatch_async(checkVersionQueue, ^{
+        NSDictionary *results = [Common getAppStoreInfo];
+        NSString *version = [[[results objectForKey:@"results"] lastObject] objectForKey:@"version"];
+        NSURL *trackViewUrl = [NSURL URLWithString:[[[results objectForKey:@"results"] lastObject] objectForKey:@"trackViewUrl"]];
+        BOOL upToDate = ([version floatValue] == [CurrentAppVersion floatValue]);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!upToDate) {
+                [CWAlertView showWithTitle:@"应用有更新" message:@"本应用的最新版本可以在AppStore下载" cancelTitle:@"下次再说" cancelBlock:nil otherTitle:@"去下载" otherBlock:^{
+                    [[UIApplication sharedApplication] openURL:trackViewUrl];
+                }];
+            }
+        });
+    });
+}
+
++ (void)rateMe
+{
+    dispatch_queue_t rateQueue = dispatch_queue_create("rate Q", NULL);
+    dispatch_async(rateQueue, ^{
+        NSDictionary *results = [Common getAppStoreInfo];
+        NSURL *trackViewUrl = [NSURL URLWithString:[[[results objectForKey:@"results"] lastObject] objectForKey:@"trackViewUrl"]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[UIApplication sharedApplication] openURL:trackViewUrl];
+        });
+    });
+}
+
++ (void)showMailComposer:(UIViewController *)controller
+{
+    Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
+    if (mailClass != nil) {
+        if ([mailClass canSendMail]) {
+            MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+            picker.mailComposeDelegate = (BLSettingsViewController *)controller;
+            NSArray *reception = [[NSArray alloc] init];
+            reception = [NSArray arrayWithObjects:@"lishiyu.thierry@gmail.com", nil];
+            [picker setToRecipients:reception];
+            [controller presentViewController:picker animated:YES completion:nil];
+        }
+        else {
+            [CWAlertView showWithTitle:@"设备不支持发送邮件" message:@"" cancelTitle:@"取消" cancelBlock:nil otherTitle:nil otherBlock:nil];
+        }
+    }
 }
 
 @end

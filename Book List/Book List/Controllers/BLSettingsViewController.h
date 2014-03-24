@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface BLSettingsViewController : UIViewController
+@interface BLSettingsViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
 typedef enum {
     SettingHelp = 0,

@@ -21,7 +21,7 @@
 - (UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:VIEW_FRAME style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:FULL_FRAME style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }
@@ -59,12 +59,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (SettingHelp) {
+    if (section == SettingHelp) {
         return SettingHelpNumRows;
     }
-    else if (SettingData) {
+    else if (section == SettingData) {
         return SettingDataNumRows;
     }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,7 +105,35 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    if (section == SettingHelp) {
+        if (row == SettingHelpRowCheckVersion) {
+            [Common checkVersion];
+        }
+        else if (row == SettingHelpRowFeedBack) {
+            [Common showMailComposer:self];
+        }
+        else if (row == SettingHelpRowRate) {
+            [Common rateMe];
+        }
+        else if (row == SettingHelpRowShare) {
+            
+        }
+    }
+    else if (section == SettingData) {
+        if (row == SettingDataRowiCloud) {
+        }
+        else if (row == SettingDataRowCalendar) {
+        }
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error
+{
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

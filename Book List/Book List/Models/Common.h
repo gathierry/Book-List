@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "CWAlertView.h"
+
 #define BOOK_ENTITY_NAME @"Book"
 #define ID_ATTRIBUTION_NAME @"identity"
 #define DDL_ATTRIBUTION_NAME @"deadline"
@@ -41,4 +43,7 @@
 + (void)deleteData:(UIManagedDocument *)document object:(Book *)book;
 
 + (void)setExtraCellLineHidden: (UITableView *)tableView;
++ (void)checkVersion;
++ (void)rateMe;
++ (void)showMailComposer:(UIViewController *)controller;
 @end
