@@ -9,6 +9,7 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <netdb.h>
 #import <MessageUI/MessageUI.h>
+#import <EventKit/EventKit.h>
 
 #import "Common.h"
 
@@ -23,18 +24,16 @@
     return [formatter stringFromDate:date];
 }
 
-#define BOOK_ID @"bookID"
-
 + (NSNumber *)refreshBookId
 {
     NSUserDefaults *userDefault =  [NSUserDefaults standardUserDefaults];
-    NSNumber *lastID = [userDefault objectForKey:BOOK_ID];
+    NSNumber *lastID = [userDefault objectForKey:USER_DEFAULT_BOOK_ID];
     if (!lastID) {
         lastID = [NSNumber numberWithInteger:10];
     }
     NSInteger newID =  [lastID integerValue] + 1;
     
-    [userDefault setObject:[NSNumber numberWithInteger:newID] forKey:BOOK_ID];
+    [userDefault setObject:[NSNumber numberWithInteger:newID] forKey:USER_DEFAULT_BOOK_ID];
     [userDefault synchronize];
     return [NSNumber numberWithInteger:newID];
 }

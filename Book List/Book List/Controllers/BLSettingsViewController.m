@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 Thierry. All rights reserved.
 //
 
+
 #import "BLSettingsViewController.h"
 
 @interface BLSettingsViewController ()<UITableViewDataSource, UITableViewDelegate>
@@ -62,8 +63,8 @@
     if (section == SettingHelp) {
         return SettingHelpNumRows;
     }
-    else if (section == SettingData) {
-        return SettingDataNumRows;
+    else if (section == SettingShare) {
+        return SettingShareNumRows;
     }
     return 0;
 }
@@ -85,17 +86,9 @@
         else if (row == SettingHelpRowRate) {
             cell.textLabel.text = @"去AppStore为我评分";
         }
-        else if (row == SettingHelpRowShare) {
-            cell.textLabel.text = @"分享书单到社交网络";
-        }
     }
-    else if (section == SettingData) {
-        if (row == SettingDataRowiCloud) {
-            cell.textLabel.text = @"同步到iCloud";
-        }
-        else if (row == SettingDataRowCalendar) {
-            cell.textLabel.text = @"同步到日历";
-        }
+    else if (section == SettingShare) {
+
     }
     
     return cell;
@@ -117,15 +110,9 @@
         else if (row == SettingHelpRowRate) {
             [Common rateMe];
         }
-        else if (row == SettingHelpRowShare) {
-            
-        }
     }
-    else if (section == SettingData) {
-        if (row == SettingDataRowiCloud) {
-        }
-        else if (row == SettingDataRowCalendar) {
-        }
+    else if (section == SettingShare) {
+
     }
 }
 

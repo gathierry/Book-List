@@ -21,10 +21,13 @@
 #define VIEW_FRAME CGRectMake(0, NAV_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - NAV_BAR_HEIGHT)
 #define FULL_FRAME CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
 
+#define USER_DEFAULT_BOOK_ID @"bookID"
+
 @interface Common : NSObject
 
 + (NSString *)dateToString:(NSDate *)date;
 + (NSNumber *)refreshBookId;
+//+ (void)iCloudBackUp;
 + (void)saveData:(UIManagedDocument *)document
            title:(NSString *)title
           remark:(NSString *)remark

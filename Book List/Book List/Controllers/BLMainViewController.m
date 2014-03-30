@@ -116,6 +116,13 @@
     }
 }
 
+- (void)iCloudKVStoreDidChange:(NSNotification *)noti
+{
+    NSString *changedKey = [[noti.userInfo objectForKey:NSUbiquitousKeyValueStoreChangedKeysKey] lastObject];
+    [[NSUserDefaults standardUserDefaults] setObject:[[NSUbiquitousKeyValueStore defaultStore] objectForKey:changedKey] forKey:USER_DEFAULT_BOOK_ID];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 #pragma mark - Gesture Recognizer
 
 #define DISTANCE 260
@@ -219,6 +226,13 @@
     [self.view addSubview:self.categoryTableView];
     [self.view addSubview:self.listTableView];
     self.categorySelectedRow = filterSectionRowAll;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self selector:@selector(iCloudKVStoreDidChange:) name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated

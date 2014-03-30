@@ -13,7 +13,7 @@
 
 typedef enum {
     SettingHelp = 0,
-    SettingData,
+    SettingShare,
     SettingNumSections,
 } SettingSections;
 
@@ -21,14 +21,12 @@ typedef enum {
     SettingHelpRowCheckVersion = 0,
     SettingHelpRowFeedBack,
     SettingHelpRowRate,
-    SettingHelpRowShare,
     SettingHelpNumRows
 } SettingHelpRows;
 
 typedef enum {
-    SettingDataRowiCloud = 0,
-    SettingDataRowCalendar,
-    SettingDataNumRows,
-} SettingDataRows;
+    SettingShareRowRenRen = 0,
+    SettingShareNumRows,
+} SettingShareRows;
 
 @end
