@@ -25,7 +25,6 @@ typedef enum {
 } SettingHelpRows;
 
 typedef enum {
-    SettingShareRowRenRen = 0,
     SettingShareNumRows,
 } SettingShareRows;
 
