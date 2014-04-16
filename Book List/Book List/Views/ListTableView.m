@@ -40,6 +40,9 @@
         _tableView.dataSource = self;
         [Common setExtraCellLineHidden:_tableView];
         _tableView.tableHeaderView = self.searchBar;
+        CGRect newBounds = _tableView.bounds;
+        newBounds.origin.y = newBounds.origin.y + self.searchBar.bounds.size.height;
+        _tableView.bounds = newBounds;
     }
     return _tableView;
 }

@@ -8,13 +8,12 @@
 
 #import "BLMainViewController.h"
 
-@interface BLMainViewController ()<UISearchDisplayDelegate>
+@interface BLMainViewController ()
 
 @property (nonatomic, retain) CategoryTableView *categoryTableView;
 @property (nonatomic, retain) ListTableView * listTableView;
 @property (nonatomic) CGPoint startPoint;
 @property (nonatomic) FilterRows categorySelectedRow;
-@property (nonatomic, strong) UISearchDisplayController *sdc;
 
 @end
 
@@ -25,7 +24,6 @@
 @synthesize startPoint = _startPoint;
 @synthesize bookDatabase = _bookDatabase;
 @synthesize categorySelectedRow = _categorySelectedRow;
-@synthesize sdc = _sdc;
 
 #pragma mark - Getters
 
@@ -236,8 +234,6 @@
     [super viewDidLoad];
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
     [defaultCenter addObserver:self selector:@selector(iCloudKVStoreDidChange:) name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification object:nil];
-    self.sdc = [[UISearchDisplayController alloc] initWithSearchBar:self.listTableView.searchBar contentsController:self];
-    self.sdc.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -282,27 +278,6 @@
     
     if (!self.listTableView.active) [self alterMode];
 }
-
-#pragma mark - UISearchDisplayController Delegate Methods
-
--(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.title contains %@",searchText];
-    NSSortDescriptor *sortByID = [NSSortDescriptor sortDescriptorWithKey:ID_ATTRIBUTION_NAME ascending:YES];
-    NSSortDescriptor *sortByDeadline = [NSSortDescriptor sortDescriptorWithKey:DDL_ATTRIBUTION_NAME ascending:YES];
-    NSArray *array = [NSArray arrayWithObjects:sortByID, sortByDeadline, nil];
-    self.listTableView.booksArray = [Common loadData:self.bookDatabase sort:array predicate:predicate];
-}
-
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    [self filterContentForSearchText:searchString scope:[[self.sdc.searchBar scopeButtonTitles] objectAtIndex:[self.sdc.searchBar selectedScopeButtonIndex]]];
-    return YES;
-}
-
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    [self filterContentForSearchText:self.sdc.searchBar.text scope:[[self.sdc.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
-    return YES;
-}
-
 
 #pragma mark - New View Controller
 
