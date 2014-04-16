@@ -28,6 +28,7 @@
 @synthesize delegate = _delegate;
 @synthesize categorySelected = _categorySelected;
 @synthesize emptyView = _emptyView;
+@synthesize searchBar = _searchBar;
 
 #pragma mark - Getters
 
@@ -37,6 +38,10 @@
         _tableView = [[UITableView alloc] initWithFrame:VIEW_FRAME];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        [Common setExtraCellLineHidden:_tableView];
+        NSLog(@"%@", _tableView.tableHeaderView);
+        _tableView.tableHeaderView = self.searchBar;
+        NSLog(@"%@", _tableView.tableHeaderView);
     }
     return _tableView;
 }
@@ -87,6 +92,15 @@
     return _emptyView;
 }
 
+- (UISearchBar *)searchBar
+{
+    if (!_searchBar) {
+        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+        _searchBar.placeholder = @"输入要搜索的书名";
+    }
+    return _searchBar;
+}
+
 - (void)setActive:(BOOL)active
 {
     if (_active != active) {
@@ -112,7 +126,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [Common setExtraCellLineHidden:self.tableView];
         [self addSubview:self.tableView];
         [self addSubview:self.navBar];
         [self addGestureRecognizer:self.panGestureRecognizer];

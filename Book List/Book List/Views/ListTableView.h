@@ -37,6 +37,7 @@
 @property (nonatomic, strong) NSIndexPath *editorIndexPath;
 @property (nonatomic) FilterRows categorySelected;
 @property (nonatomic, retain) EmptyView *emptyView;
+@property (nonatomic, retain) UISearchBar *searchBar;
 
 @property (nonatomic, weak) id<ListTableViewDelegate> delegate;
 
