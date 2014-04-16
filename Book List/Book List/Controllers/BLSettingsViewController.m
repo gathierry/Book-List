@@ -114,6 +114,7 @@
     else if (section == SettingShare) {
 
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller

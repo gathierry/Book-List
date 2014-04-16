@@ -21,5 +21,5 @@
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 #define CurrentSystemVersion ([[UIDevice currentDevice] systemVersion])
 #define CurrentAppVersion ([[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"])
-#define APP_URL @"http://itunes.apple.com/lookup?id=585993965"
+#define APP_URL @"http://itunes.apple.com/lookup?id=842434060"
 

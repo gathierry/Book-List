@@ -147,12 +147,15 @@
         NSDictionary *results = [Common getAppStoreInfo];
         NSString *version = [[[results objectForKey:@"results"] lastObject] objectForKey:@"version"];
         NSURL *trackViewUrl = [NSURL URLWithString:[[[results objectForKey:@"results"] lastObject] objectForKey:@"trackViewUrl"]];
-        BOOL upToDate = ([version floatValue] == [CurrentAppVersion floatValue]);
+        BOOL upToDate = ([version floatValue] <= [CurrentAppVersion floatValue]);
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!upToDate) {
                 [CWAlertView showWithTitle:@"应用有更新" message:@"本应用的最新版本可以在AppStore下载" cancelTitle:@"下次再说" cancelBlock:nil otherTitle:@"去下载" otherBlock:^{
                     [[UIApplication sharedApplication] openURL:trackViewUrl];
                 }];
+            }
+            else {
+                [CWAlertView showWithTitle:@"当前最新版本" message:@"本应用已经升级到最新版本" cancelTitle:@"知道了" cancelBlock:nil otherTitle:nil otherBlock:nil];
             }
         });
     });

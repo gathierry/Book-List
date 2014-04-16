@@ -25,10 +25,12 @@
 @synthesize liked = _liked;
 
 
-#define BUTTON_WIDTH 30
-#define INTERVAL_WIDTH 40
+#define BUTTON_WIDTH 44
+#define BUTTON_IMAGE_WIDTH 30
+#define INTERVAL_WIDTH 28
 #define CELL_HEIGHT self.frame.size.height
-#define TITLE_HEIGHT (EDITOR_CELL_HEIGHT - BUTTON_WIDTH)
+#define TITLE_HEIGHT (EDITOR_CELL_HEIGHT - BUTTON_IMAGE_WIDTH)
+#define INSET (BUTTON_WIDTH/2 - BUTTON_IMAGE_WIDTH/2)
 //#define BUTTON_TINT_COLOR []
 
 - (UIButton *)doneButton
@@ -36,7 +38,7 @@
     if (!_doneButton) {
         _doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
         _doneButton.tintColor = MAIN_COLOR;
-        _doneButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, TITLE_HEIGHT, 0);
+        _doneButton.imageEdgeInsets = UIEdgeInsetsMake(0, INSET, TITLE_HEIGHT, INSET);
         [_doneButton setFrame:CGRectMake(INTERVAL_WIDTH, 0, BUTTON_WIDTH, CELL_HEIGHT)];
     }
     return _doneButton;
@@ -48,7 +50,7 @@
         _deleteButton = [UIButton buttonWithType:UIButtonTypeSystem];
         _deleteButton.tintColor = MAIN_COLOR;
         [_deleteButton setImage:[UIImage imageNamed:@"Trash.png"] forState:UIControlStateNormal];
-        _deleteButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, TITLE_HEIGHT, 0);
+        _deleteButton.imageEdgeInsets = UIEdgeInsetsMake(0, INSET, TITLE_HEIGHT, INSET);
         [_deleteButton setFrame:CGRectMake(INTERVAL_WIDTH * 2 + BUTTON_WIDTH, 0, BUTTON_WIDTH, CELL_HEIGHT)];
     }
     return _deleteButton;
@@ -60,7 +62,7 @@
         _editButton = [UIButton buttonWithType:UIButtonTypeSystem];
         _editButton.tintColor = MAIN_COLOR;
         [_editButton setImage:[UIImage imageNamed:@"Edit.png"] forState:UIControlStateNormal];
-        _editButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, TITLE_HEIGHT, 0);
+        _editButton.imageEdgeInsets = UIEdgeInsetsMake(0, INSET, TITLE_HEIGHT, INSET);
         [_editButton setFrame:CGRectMake(INTERVAL_WIDTH * 3 + BUTTON_WIDTH * 2, 0, BUTTON_WIDTH, CELL_HEIGHT)];
     }
     return _editButton;
@@ -71,7 +73,7 @@
     if (!_favoriteButton) {
         _favoriteButton = [UIButton buttonWithType:UIButtonTypeSystem];
         _favoriteButton.tintColor = MAIN_COLOR;
-        _favoriteButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, TITLE_HEIGHT, 0);
+        _favoriteButton.imageEdgeInsets = UIEdgeInsetsMake(0, INSET, TITLE_HEIGHT, INSET);
         [_favoriteButton setFrame:CGRectMake(INTERVAL_WIDTH * 4 + BUTTON_WIDTH * 3, 0, BUTTON_WIDTH, CELL_HEIGHT)];
     }
     return _favoriteButton;
@@ -118,26 +120,26 @@
         [self addSubview:self.editButton];
         [self addSubview:self.favoriteButton];
         
-        _doneLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.doneButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, TITLE_HEIGHT)];
+        _doneLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.doneButton.frame.origin.x, BUTTON_IMAGE_WIDTH + 1, BUTTON_WIDTH, TITLE_HEIGHT)];
         _doneLabel.textAlignment = NSTextAlignmentCenter;
-        _doneLabel.font = [UIFont systemFontOfSize:10];
+        _doneLabel.font = [UIFont systemFontOfSize:11];
         [self addSubview:_doneLabel];
         
-        UILabel *deleteLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.deleteButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, TITLE_HEIGHT)];
+        UILabel *deleteLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.deleteButton.frame.origin.x, BUTTON_IMAGE_WIDTH + 1, BUTTON_WIDTH, TITLE_HEIGHT)];
         deleteLabel.text = @"删除";
         deleteLabel.textAlignment = NSTextAlignmentCenter;
-        deleteLabel.font = [UIFont systemFontOfSize:10];
+        deleteLabel.font = [UIFont systemFontOfSize:11];
         [self addSubview:deleteLabel];
         
-        UILabel *editLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.editButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, TITLE_HEIGHT)];
+        UILabel *editLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.editButton.frame.origin.x, BUTTON_IMAGE_WIDTH + 1, BUTTON_WIDTH, TITLE_HEIGHT)];
         editLabel.text = @"编辑";
         editLabel.textAlignment = NSTextAlignmentCenter;
-        editLabel.font = [UIFont systemFontOfSize:10];
+        editLabel.font = [UIFont systemFontOfSize:11];
         [self addSubview:editLabel];
         
-        _favoriteLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.favoriteButton.frame.origin.x, BUTTON_WIDTH + 1, BUTTON_WIDTH, TITLE_HEIGHT)];
+        _favoriteLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.favoriteButton.frame.origin.x, BUTTON_IMAGE_WIDTH + 1, BUTTON_WIDTH, TITLE_HEIGHT)];
         _favoriteLabel.textAlignment = NSTextAlignmentCenter;
-        _favoriteLabel.font = [UIFont systemFontOfSize:10];
+        _favoriteLabel.font = [UIFont systemFontOfSize:11];
         [self addSubview:_favoriteLabel];
     }
     return self;
