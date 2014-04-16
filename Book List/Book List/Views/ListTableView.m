@@ -39,9 +39,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [Common setExtraCellLineHidden:_tableView];
-        NSLog(@"%@", _tableView.tableHeaderView);
         _tableView.tableHeaderView = self.searchBar;
-        NSLog(@"%@", _tableView.tableHeaderView);
     }
     return _tableView;
 }
@@ -97,6 +95,8 @@
     if (!_searchBar) {
         _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
         _searchBar.placeholder = @"输入要搜索的书名";
+        _searchBar.barTintColor = [UIColor clearColor];
+        _searchBar.searchBarStyle = UISearchBarStyleMinimal;
     }
     return _searchBar;
 }
